@@ -1,0 +1,83 @@
+Project 4 for CS340 (Software Design)
+
+Group assignment with Chung-Lun "Ben" Chiang where we created a Qt based game.
+Ben focused on the GUI for the game while I came up with the logic.
+
+Received 127/100 (We killed it)
+
+
+Writeup below...
+--------------------
+Member:
+This project is written by Andrew Long (along27) and Chung-Lun Chiang (cchian5).
+
+Description:
+The program was turned in before the original deadline and implemented all the possible extra points(image reset button, image game map button).
+The program uses QT resource in order to manage the path of images when the building environment is different.
+The game contains 4 class: MainWindow, MineButton, Board, Square. The game will create "record.dat" file to save the top ten records.
+
+Classes:
+	MainWindow:
+		The MainWindow class will be created once and deleted when the user shuts down the window. The MainWindow class has the following parameters:
+			pointer of timer (QTimer *)
+			current timer count (int)
+			ranking data (QVector < QPair<QString, int> >)
+			pointer of Board (Board *)
+			pointer of 10x10 buttons (MineButton ***)
+			the user starts the game or not (bool)
+
+		Methods:
+		void setClick() - method used to determine when the timer should start.
+		void startTimer() - start the timer if possible
+		void gameOver(bool) - called when the user click a mine or the user win the game
+		void displayMineNumber(int) - display the number of mine on LCD
+		static bool rankingSorting(const QPair<QString,int>&, const QPair<QString,int>&) - method used by qsort. This method is needed because the datatype in QVector cannot be sorted by default.
+		void gameStart() - a slot method called when reset button is pressed or when the program starts.
+		void quitSlot() - a slot method called when user closes the window.
+		void aboutSlot() - a slot method called when user clicks about.
+		void helpSlot() - a slot method called when user clicks help. The method will show how to play the game in short.
+		void topTenSlot() - a slot method called when user clicks topTen. The method will create a QTableWidget and show the top ten records.
+		void clearTopTenSlot() - a slot method called when user clicks clearTopTen.
+		void update() - method to update timer every second.
+		void initRanking() - initialize the top ten data from file if there is a file.
+		bool newRecord() - method called when user wins a game. The method will return true if the new record is better then the last in record.
+
+	MineButton:
+		Each instance of MineButton class will have the following variables:
+			pointer of MainWindow (MainWindow *)
+			pointer of board (Board *)
+			pointer of Square (Square *)
+		The class contains several static members in order to store the QIcon. These MineButton instances will only be created once when the program starts.
+		    static QIcon icon_flag;
+		    static QIcon icon_blank;
+		    static QIcon icon_mine;
+		    static QIcon icon_check;
+		    static QIcon icon_number[9];
+		
+		Methods:
+    		void setSquare(Square *) - Set the square pointer into the instance.
+	    	void mouseReleaseEvent(QMouseEvent *) - method to handle the mouse release event. Actually, the method do nothing but only pass the event to Board class.
+
+	Board:
+		Each instance of a game is held within the Board class. The Board class takes the following parameters:
+			size parameter (int)
+			mine count (int)
+			Instance of mainwindow (MainWindow*)
+		This allows for a custom setting of difficulty and puts the responsibility of having the amount of mines be less than size the size of the board (size2 > minenum).
+		Methods:
+		void leftClickSquare(int, int)	- method used when using the left click on a square. First checks to see if the square is flagged or clicked already, and returns nothing if either are true. If neither is true then we will check to see if this square has a mine. If we have found a mine then the game will end, otherwise we will begin our algorithm to check surrounding spaces (checkMove)
+		void rightClickSquare(int, int)	- calls the rightClick function for the Square
+		void checkMove(int, int)	- method that checks how many mines surround the given coordinate. This method is recursive whenever we have a minecount (int) of zero and will continue until we find only squares with mines surrounding them. This method also keeps track of how many non-mine squares are remaining and will end the game when remain (int) is equal to zero
+
+	Square:
+		Within each board is a grid of class Square. Square takes no parameters and is initialized with the following variables:
+			bool hasMine = false
+			bool isFlagged = false
+			bool isChecked = false
+			bool isFlipped = false
+		The parameter hasMine is determined while creating the Board and the rest are altered during the game.
+
+		Methods:
+		void flip(int)		- method that checks the amount of mines surrounding the current square and then determines which image file (that contains a corresponding number) will be placed on the grid.
+		void showMine()		- displays images of mine on square’s that have a value of hasMine = true;
+		void rightClick(int&)	- method that determines how to handle a right click. If the value isFlipped is set already we will ignore the action. Otherwise we will check to see if the square has a flag. If the square has a flag we will decrement our mine count and show the flag image. If the flag is already set on the square we will increment our mine count and remove the flag icon.

@@ -1,0 +1,24 @@
+<RCC>
+    <qresource prefix="/res">
+        <file>image/water0.gif</file>
+        <file>image/water1.gif</file>
+        <file>image/hhship0.gif</file>
+        <file>image/hhship1.gif</file>
+        <file>image/hhship2.gif</file>
+        <file>image/hit0.gif</file>
+        <file>image/hit1.gif</file>
+        <file>image/hship0.gif</file>
+        <file>image/hship1.gif</file>
+        <file>image/hship2.gif</file>
+        <file>image/hship3.gif</file>
+        <file>image/hship4.gif</file>
+        <file>image/hvship0.gif</file>
+        <file>image/hvship1.gif</file>
+        <file>image/hvship2.gif</file>
+        <file>image/vship0.gif</file>
+        <file>image/vship1.gif</file>
+        <file>image/vship2.gif</file>
+        <file>image/vship3.gif</file>
+        <file>image/vship4.gif</file>
+    </qresource>
+</RCC>

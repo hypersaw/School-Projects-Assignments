@@ -1,0 +1,20 @@
+<RCC>
+    <qresource prefix="/res">
+        <file>image/blank30.png</file>
+        <file>image/check30.png</file>
+        <file>image/flag30.png</file>
+        <file>image/mine30.png</file>
+        <file>image/num0.png</file>
+        <file>image/num1.png</file>
+        <file>image/num2.png</file>
+        <file>image/num3.png</file>
+        <file>image/num4.png</file>
+        <file>image/num5.png</file>
+        <file>image/num6.png</file>
+        <file>image/num7.png</file>
+        <file>image/num8.png</file>
+        <file>image/reset.png</file>
+        <file>image/reset50.png</file>
+        <file>image/flagmine30.png</file>
+    </qresource>
+</RCC>
