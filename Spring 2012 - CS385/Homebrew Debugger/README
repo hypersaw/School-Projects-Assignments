@@ -1,0 +1,8 @@
+Homework Assignment 8 for CS385 (Operating System Concepts and Design)
+
+KNOWN ISSUES:
+When running the test scripts, test5 will always fail despite printing the correct output. This
+was reviewed with the course TA and verified that the solution is in fact correct (new test scripts had
+been handed out last minute and came with some issues, like this one).
+
+Received a 23/15.
