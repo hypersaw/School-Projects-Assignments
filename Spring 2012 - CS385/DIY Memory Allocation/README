@@ -1,0 +1,8 @@
+Homework Assignment 7 for CS385 (Operating System Concepts and Design)
+
+KNOWN ISSUES:
+The program runs into a segfault running the final test. Initially I was given a 3/10 on the assignment, but after
+reviewing the results with the course TA we found that something wasn't going right with the test scripts that caused
+this error.
+
+Received a 10/10.

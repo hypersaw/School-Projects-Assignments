@@ -1,0 +1,5 @@
++hw7 along27 909c80 3
+Reusing freed memory: 3
+Simple allocation and free: 0
+Coalescing free and splitting: 0
+Random malloc and free sequence: 0
