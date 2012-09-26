@@ -2,7 +2,7 @@ Project 5 (Final) for CS340 (Software Design)
 
 KNOWN ISSUES:
 The player cannot manually set their board. This is by choice though, not an issue (well, the TA
-had an issue with it at least). Torwards the end of the project I remembered I had been using a static board for testing
+had an issue with it at least). Towards the end of the project I remembered I had been using a static board for testing
 and when it came down to it I pulled a Steve Jobs and said "you know what? The user doesn't need to arrange the board."
 An algorithm that places the pieces for me is just as arbitrary as my own personal opinion as to where the 
 piece(s) should go. Also saves time, both players are ready instantly! But I digress. Personal choice.
