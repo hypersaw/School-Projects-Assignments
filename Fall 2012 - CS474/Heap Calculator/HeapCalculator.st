@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <st-source>
-<time-stamp>From VisualWorks® Personal Use Edition, 7.9 of May 11, 2012 on October 30, 2012 at 9:13:42 PM</time-stamp>
+<time-stamp>From VisualWorks® Personal Use Edition, 7.9 of May 11, 2012 on November 1, 2012 at 8:48:02 PM</time-stamp>
 
 
 <component-created>
@@ -30,7 +30,27 @@
 
 <comment>
 <class-id>BinaryHeap</class-id>
-<body>BinaryHeap has not been commented.  The comment should state the purpose of the class and also explain any unobvious aspects of the implementation. Instance Variables	last	&lt;MessageForwarder | Object | ProtoObject | ProtoObject&gt;	description of last	root	&lt;MessageForwarder | Object | ProtoObject | ProtoObject&gt;	description of root</body>
+<body>traverse:subRoot andAddDuplicatesTo:heap	"Add the data of our root"	(self exists:subRoot data)		ifTrue:[heap add:subRoot data.].	"Traverse children"	subRoot hasChildren		ifTrue:[			subRoot hasLeftChild				ifTrue:[self traverse:(subRoot leftChild) andAddDuplicatesTo:heap].			subRoot hasMiddleChild				ifTrue:[self traverse:(subRoot middleChild) andAddDuplicatesTo:heap].			subRoot hasRightChild				ifTrue:[self traverse:(subRoot rightChild) andAddDuplicatesTo:heap].].</body>
+</comment>
+
+<class>
+<name>TertiaryHeap</name>
+<environment>Smalltalk</environment>
+<super>BinaryHeap</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category></category>
+<attributes>
+<package>HeapCalculator</package>
+</attributes>
+</class>
+
+<comment>
+<class-id>TertiaryHeap</class-id>
+<body>add: data		| aNode |	aNode := Smalltalk.TertiaryNode new initialize.	aNode data:data.		"Check to make sure item doesn't exist in heap"	(self exists:data)		ifFalse:[			root == nil				"If we have an empty heap, add at root"				ifTrue: [self root: aNode. self last: aNode.]				"Otherwise find next positoin"				ifFalse: [self addToNextNode:aNode. self sort.].].</body>
 </comment>
 
 <class>
@@ -51,6 +71,26 @@
 <comment>
 <class-id>Queue</class-id>
 <body>Queue has not been commented.  The comment should state the purpose of the class and also explain any unobvious aspects of the implementation. Instance Variables	root	&lt;BinaryNode&gt;	description of root</body>
+</comment>
+
+<class>
+<name>HeapCalculatorInterface</name>
+<environment>Smalltalk</environment>
+<super>UI.ApplicationModel</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>heapOne heapTwo AddField RemoveField heapOneOutput heapTwoOutput </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category></category>
+<attributes>
+<package>HeapCalculator</package>
+</attributes>
+</class>
+
+<comment>
+<class-id>HeapCalculatorInterface</class-id>
+<body>Interface for the Heap Calculator</body>
 </comment>
 
 <class>
@@ -76,10 +116,10 @@
 <class>
 <name>TertiaryNode</name>
 <environment>Smalltalk</environment>
-<super>Core.Object</super>
+<super>BinaryNode</super>
 <private>false</private>
 <indexed-type>none</indexed-type>
-<inst-vars>data parent leftChild middleChild rightChild </inst-vars>
+<inst-vars>middleChild </inst-vars>
 <class-inst-vars></class-inst-vars>
 <imports></imports>
 <category></category>
@@ -90,33 +130,13 @@
 
 <comment>
 <class-id>TertiaryNode</class-id>
-<body>Node that contains data and pointers to a parent node, left, middle, and right child.Instance Variables	data	&lt;MessageForwarder | Object | ProtoObject | ProtoObject&gt;	Data contained in Node.	parent	&lt;MessageForwarder | Object | ProtoObject | ProtoObject&gt;	The parent of Node.	leftChild	&lt;MessageForwarder | Object | ProtoObject | ProtoObject&gt;	The left child of Node.	middleChild	&lt;MessageForwarder | Object | ProtoObject | ProtoObject&gt;	description of middleChild	rightChild	&lt;MessageForwarder | Object | ProtoObject | ProtoObject&gt;	The right child of Node.</body>
-</comment>
-
-<class>
-<name>HeapCalculatorInterface</name>
-<environment>Smalltalk</environment>
-<super>UI.ApplicationModel</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars>heapOne heapTwo AddField RemoveField heapOneOutput heapTwoOutput </inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category></category>
-<attributes>
-<package>HeapCalculator</package>
-</attributes>
-</class>
-
-<comment>
-<class-id>HeapCalculatorInterface</class-id>
-<body>Interface for the Heap Calculator</body>
+<body>hasSibling	self parent leftChild == self		ifTrue:[((self parent middleChild == nil) &amp; (self parent rightChild == nil)) ifTrue:[^false] ifFalse:[^true].]	self parent middleChild == self		ifTrue:[((self parent leftChild == nil) &amp; (self parent rightChild == nil)) ifTrue:[^false] ifFalse:[^true].]	self parent rightChild == self		ifTrue:[((self parent leftChild == nil) &amp; (self parent middleChild == nil)) ifTrue:[^false] ifFalse:[^true].]</body>
 </comment>
 
 <methods>
 <class-id>HeapCalculatorInterface class</class-id> <category>interface specs</category>
 
-<body package="HeapCalculator" selector="windowSpec">windowSpec	"Tools.UIPainter new openOnClass: self andSelector: #windowSpec"	&lt;resource: #canvas&gt;	^#(#{UI.FullSpec} 		#window: 		#(#{UI.WindowSpec} 			#label: 'Heap Calculator' 			#min: #(#{Core.Point} 700 375 ) 			#max: #(#{Core.Point} 0 0 ) 			#bounds: #(#{Graphics.Rectangle} 333 197 1033 572 ) 			#colors: 			#(#{UI.LookPreferences} 				#setForegroundColor: #(#{Graphics.ColorValue} #black ) 				#setBackgroundColor: #(#{Graphics.ColorValue} 7700 7700 7700 ) 				#setSelectionForegroundColor: #(#{Graphics.ColorValue} #black ) 				#setBorderColor: #(#{Graphics.ColorValue} #lightGray ) ) ) 		#component: 		#(#{UI.SpecCollection} 			#collection: #(				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.Rectangle} 40 40 140 62 ) 					#name: #AddField 					#model: #AddField ) 				#(#{UI.LabelSpec} 					#layout: #(#{Core.Point} 40 16 ) 					#name: #labelModify 					#colors: 					#(#{UI.LookPreferences} 						#setForegroundColor: #(#{Graphics.ColorValue} 3522 3522 3522 ) ) 					#label: 'Modify' ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.Rectangle} 40 72 140 94 ) 					#name: #RemoveField 					#model: #RemoveField ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.Rectangle} 144 40 240 60 ) 					#name: #AddFieldButton 					#model: #addItem 					#label: 'Add Item' 					#defaultable: true ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.Rectangle} 144 72 240 92 ) 					#name: #RemoveFieldButton 					#model: #removeItem 					#label: 'Remove Item' 					#defaultable: true ) 				#(#{UI.TextEditorSpec} 					#layout: #(#{Graphics.Rectangle} 344 40 664 168 ) 					#name: #TextEditor1 					#model: #heapOneOutput 					#tabRequiresControl: true ) 				#(#{UI.TextEditorSpec} 					#layout: #(#{Graphics.Rectangle} 344 232 664 360 ) 					#name: #TextEditor2 					#model: #heapTwoOutput 					#tabRequiresControl: true ) 				#(#{UI.LabelSpec} 					#layout: #(#{Core.Point} 344 16 ) 					#name: #labelHeapOne 					#colors: 					#(#{UI.LookPreferences} 						#setForegroundColor: #(#{Graphics.ColorValue} 3522 3522 3522 ) ) 					#label: 'Heap One' ) 				#(#{UI.LabelSpec} 					#layout: #(#{Core.Point} 344 208 ) 					#name: #labelHeapTwo 					#colors: 					#(#{UI.LookPreferences} 						#setForegroundColor: #(#{Graphics.ColorValue} 3522 3522 3522 ) ) 					#label: 'Heap Two' ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.Rectangle} 344 176 432 200 ) 					#name: #UnionButton 					#model: #performUnison 					#label: 'Union' 					#defaultable: true ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.Rectangle} 456 176 552 200 ) 					#name: #IntersectionButton 					#model: #performIntersection 					#label: 'Intersection' 					#defaultable: true ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.Rectangle} 576 176 664 200 ) 					#name: #DifferenceButton 					#model: #performDifference 					#label: 'Difference' 					#defaultable: true ) 				#(#{UI.LabelSpec} 					#layout: #(#{Core.Point} 40 208 ) 					#name: #labelGeneral 					#colors: 					#(#{UI.LookPreferences} 						#setForegroundColor: #(#{Graphics.ColorValue} 3522 3522 3522 ) ) 					#label: 'General' ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.Rectangle} 40 232 112 256 ) 					#name: #SaveButton 					#model: #saveHeap 					#label: 'Save' 					#defaultable: true ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.Rectangle} 40 264 112 288 ) 					#name: #ClearButton 					#model: #clearHeap 					#label: 'Clear' 					#defaultable: true ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.Rectangle} 40 296 112 320 ) 					#name: #SwitchButton 					#model: #switchHeaps 					#label: 'Switch' 					#defaultable: true ) 				#(#{UI.LabelSpec} 					#layout: #(#{Core.Point} 144 208 ) 					#name: #labelStructure 					#colors: 					#(#{UI.LookPreferences} 						#setForegroundColor: #(#{Graphics.ColorValue} 3522 3522 3522 ) ) 					#label: 'Structure' ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.Rectangle} 144 232 216 256 ) 					#name: #BinaryButton 					#flags: 40 					#model: #setBinaryHeap 					#label: 'Binary' 					#defaultable: true ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.Rectangle} 144 264 216 288 ) 					#name: #TertiaryButton 					#flags: 40 					#model: #setTertiaryHeap 					#label: 'Tertiary' 					#defaultable: true ) ) ) )</body>
+<body package="HeapCalculator" selector="windowSpec">windowSpec	"Tools.UIPainter new openOnClass: self andSelector: #windowSpec"	&lt;resource: #canvas&gt;	^#(#{UI.FullSpec} 		#window: 		#(#{UI.WindowSpec} 			#label: 'Heap Calculator' 			#min: #(#{Core.Point} 700 375 ) 			#max: #(#{Core.Point} 0 0 ) 			#bounds: #(#{Graphics.Rectangle} 333 197 1033 572 ) 			#colors: 			#(#{UI.LookPreferences} 				#setForegroundColor: #(#{Graphics.ColorValue} #black ) 				#setBackgroundColor: #(#{Graphics.ColorValue} 7700 7700 7700 ) 				#setSelectionForegroundColor: #(#{Graphics.ColorValue} #black ) 				#setBorderColor: #(#{Graphics.ColorValue} #lightGray ) ) ) 		#component: 		#(#{UI.SpecCollection} 			#collection: #(				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.Rectangle} 40 40 140 62 ) 					#name: #AddField 					#model: #AddField ) 				#(#{UI.LabelSpec} 					#layout: #(#{Core.Point} 40 16 ) 					#name: #labelModify 					#colors: 					#(#{UI.LookPreferences} 						#setForegroundColor: #(#{Graphics.ColorValue} 3522 3522 3522 ) ) 					#label: 'Modify' ) 				#(#{UI.InputFieldSpec} 					#layout: #(#{Graphics.Rectangle} 40 72 140 94 ) 					#name: #RemoveField 					#model: #RemoveField ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.Rectangle} 144 40 240 60 ) 					#name: #AddFieldButton 					#model: #addItem 					#label: 'Add Item' 					#defaultable: true ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.Rectangle} 144 72 240 92 ) 					#name: #RemoveFieldButton 					#model: #removeItem 					#label: 'Remove Item' 					#defaultable: true ) 				#(#{UI.TextEditorSpec} 					#layout: #(#{Graphics.Rectangle} 344 40 664 168 ) 					#name: #TextEditor1 					#model: #heapOneOutput 					#tabRequiresControl: true ) 				#(#{UI.TextEditorSpec} 					#layout: #(#{Graphics.Rectangle} 344 232 664 360 ) 					#name: #TextEditor2 					#model: #heapTwoOutput 					#tabRequiresControl: true ) 				#(#{UI.LabelSpec} 					#layout: #(#{Core.Point} 344 16 ) 					#name: #labelHeapOne 					#colors: 					#(#{UI.LookPreferences} 						#setForegroundColor: #(#{Graphics.ColorValue} 3522 3522 3522 ) ) 					#label: 'Heap One' ) 				#(#{UI.LabelSpec} 					#layout: #(#{Core.Point} 344 208 ) 					#name: #labelHeapTwo 					#colors: 					#(#{UI.LookPreferences} 						#setForegroundColor: #(#{Graphics.ColorValue} 3522 3522 3522 ) ) 					#label: 'Heap Two' ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.Rectangle} 344 176 432 200 ) 					#name: #UnionButton 					#model: #performUnison 					#label: 'Union' 					#defaultable: true ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.Rectangle} 456 176 552 200 ) 					#name: #IntersectionButton 					#model: #performIntersection 					#label: 'Intersection' 					#defaultable: true ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.Rectangle} 576 176 664 200 ) 					#name: #DifferenceButton 					#model: #performDifference 					#label: 'Difference' 					#defaultable: true ) 				#(#{UI.LabelSpec} 					#layout: #(#{Core.Point} 40 208 ) 					#name: #labelGeneral 					#colors: 					#(#{UI.LookPreferences} 						#setForegroundColor: #(#{Graphics.ColorValue} 3522 3522 3522 ) ) 					#label: 'General' ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.Rectangle} 40 232 112 256 ) 					#name: #SaveButton 					#model: #saveHeap 					#label: 'Save' 					#defaultable: true ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.Rectangle} 40 264 112 288 ) 					#name: #ClearButton 					#model: #clearHeap 					#label: 'Clear' 					#defaultable: true ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.Rectangle} 40 296 112 320 ) 					#name: #SwitchButton 					#model: #switchHeaps 					#label: 'Switch' 					#defaultable: true ) 				#(#{UI.LabelSpec} 					#layout: #(#{Core.Point} 144 208 ) 					#name: #labelStructure 					#colors: 					#(#{UI.LookPreferences} 						#setForegroundColor: #(#{Graphics.ColorValue} 3522 3522 3522 ) ) 					#label: 'Structure' ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.Rectangle} 144 232 216 256 ) 					#name: #BinaryButton 					#flags: 40 					#model: #setBinaryHeap 					#label: 'Binary' 					#defaultable: true ) 				#(#{UI.ActionButtonSpec} 					#layout: #(#{Graphics.Rectangle} 144 264 216 288 ) 					#name: #TertiaryButton 					#model: #setTertiaryHeap 					#label: 'Tertiary' 					#defaultable: true ) ) ) )</body>
 </methods>
 
 
@@ -137,25 +157,25 @@
 
 <body package="HeapCalculator" selector="switchHeaps">switchHeaps	| temp |	temp := heapOne.	heapOne := heapTwo.	heapTwo := temp.	self displayHeaps.	^self</body>
 
-<body package="HeapCalculator" selector="performDifference">performDifference	heapOne := (heapTwo difference:heapOne).	self halt.	self displayHeaps.	^self</body>
+<body package="HeapCalculator" selector="performDifference">performDifference	heapOne := (heapTwo difference:heapOne).	self displayHeaps.	^self</body>
 
-<body package="HeapCalculator" selector="performIntersection">performIntersection	heapOne := heapOne intersection:heapTwo.	self halt.	self displayHeaps.	^self</body>
+<body package="HeapCalculator" selector="performIntersection">performIntersection	heapOne := heapOne intersection:heapTwo.	self displayHeaps.	^self</body>
 
-<body package="HeapCalculator" selector="clearHeap">clearHeap	heapOne := Smalltalk.BinaryHeap new initialize.	self displayHeaps.	^self</body>
+<body package="HeapCalculator" selector="clearHeap">clearHeap	heapOne := heapOne class new initialize.	self displayHeaps.	^self</body>
 
-<body package="HeapCalculator" selector="setTertiaryHeap">setTertiaryHeap	"This stub method was generated by UIDefiner"	^self</body>
+<body package="HeapCalculator" selector="setTertiaryHeap">setTertiaryHeap	heapOne := Smalltalk.TertiaryHeap new initialize.	heapTwo := Smalltalk.TertiaryHeap new initialize.	(self builder componentAt: #TertiaryButton) disable.	(self builder componentAt: #BinaryButton) enable.	self displayHeaps.	^self</body>
 
-<body package="HeapCalculator" selector="saveHeap">saveHeap	"Clear out heap two"	heapTwo := Smalltalk.BinaryHeap new initialize.				heapOne isEmpty		"If heap one has elements, copy it over. Otherwise, leave heap two blank"		ifFalse:[	heapTwo := heapOne copy.].	self displayHeaps.	Transcript cr.	^self</body>
+<body package="HeapCalculator" selector="saveHeap">saveHeap	"Clear out heap two"	heapTwo := heapTwo class new initialize.				heapOne isEmpty		"If heap one has elements, copy it over. Otherwise, leave heap two blank"		ifFalse:[	heapTwo := heapOne copy.].	self displayHeaps.	Transcript cr.	^self</body>
 
 <body package="HeapCalculator" selector="performUnison">performUnison	heapOne := heapOne union:heapTwo.	self displayHeaps.	^self</body>
 
 <body package="HeapCalculator" selector="displayHeaps">displayHeaps	| oStreamOne oStreamTwo oStringOne oStringTwo |	oStreamOne := ReadWriteStream on:String new.	oStreamTwo := ReadWriteStream on:String new.	"Get output stream"	heapOne == nil		ifFalse:[	heapOne display:oStreamOne. heapOne display].	heapTwo == nil		ifFalse:[	heapTwo display:oStreamTwo. heapTwo display.].	oStringOne := String new. oStringOne := oStreamOne collection.	oStringTwo := String new. oStringTwo := oStreamTwo collection.	heapOneOutput value:oStringOne.	heapTwoOutput value:oStringTwo.	^self</body>
 
-<body package="HeapCalculator" selector="addItem">addItem	heapOne == nil		ifTrue:[heapOne := Smalltalk.BinaryHeap new initialize.].	"Prevent blank actions"	AddField value = ''		ifFalse:[ heapOne add: AddField value asNumber. AddField value: ''. self displayHeaps.].	^self</body>
+<body package="HeapCalculator" selector="addItem">addItem	"Binary Heap is the default heap when opening the program,	since the setTertiaryHeap button will initialize heapOne and heapTwo	to the appropriate class, we can assume that if heapOne is nil that we just	opened the program and therefor are working with Binary Heaps"	heapOne == nil		ifTrue:[heapOne := Smalltalk.BinaryHeap new initialize.].	"Prevent blank actions"	AddField value = ''		ifFalse:[ heapOne add: AddField value asNumber. AddField value: ''. self displayHeaps.].	^self</body>
 
 <body package="HeapCalculator" selector="removeItem">removeItem	"Prevent blank actions"	RemoveField value = ''		ifFalse:[heapOne removeElement: RemoveField value asNumber.].	RemoveField value:''.	self displayHeaps.	^self</body>
 
-<body package="HeapCalculator" selector="setBinaryHeap">setBinaryHeap	"This stub method was generated by UIDefiner"	^self</body>
+<body package="HeapCalculator" selector="setBinaryHeap">setBinaryHeap	heapOne := Smalltalk.BinaryHeap new initialize.	heapTwo := Smalltalk.BinaryHeap new initialize.	(self builder componentAt: #TertiaryButton) enable.	(self builder componentAt: #BinaryButton) disable.	self displayHeaps.	^self</body>
 </methods>
 
 
@@ -203,62 +223,6 @@
 
 
 <methods>
-<class-id>BinaryHeap</class-id> <category>accessing</category>
-
-<body package="HeapCalculator" selector="find:subtree:">find: aNode subtree: subRoot	| found |	found := false.	subRoot = aNode			ifTrue:[found := true]			ifFalse:[				subRoot hasLeftChild ifTrue:[found := found | (self find:aNode subtree:subRoot leftChild)].				subRoot hasRightChild ifTrue:[found := found | (self find:aNode subtree:subRoot rightChild)].].	^found.</body>
-
-<body package="HeapCalculator" selector="display">display	| aQueue current |	aQueue := Smalltalk.Queue new initialize.	self isEmpty		ifFalse:[			"Add our root to the queue"			aQueue enqueue: self root.			[aQueue numberOfItems &gt; 0] whileTrue: [				"Pop first item, print it out, add its children"				current := aQueue dequeue.				Transcript show:current data printString;show:' '.				current hasLeftChild ifTrue:[aQueue enqueue:current leftChild.].				current hasRightChild ifTrue:[aQueue enqueue:current rightChild.].].].</body>
-
-<body package="HeapCalculator" selector="root">root	^root</body>
-
-<body package="HeapCalculator" selector="isEmpty">isEmpty	^self root == nil</body>
-
-<body package="HeapCalculator" selector="exists:">exists: findData	| current searchNode |	self isEmpty		ifFalse:[			current := self root.			searchNode := Smalltalk.BinaryNode new initialize.			searchNode data: findData.			^(self find:searchNode subtree:current).]		ifTrue:[^false].</body>
-
-<body package="HeapCalculator" selector="last">last	^last</body>
-
-<body package="HeapCalculator" selector="last:">last: anObject	last := anObject</body>
-
-<body package="HeapCalculator" selector="root:">root: anObject	root := anObject</body>
-
-<body package="HeapCalculator" selector="findNodeWithData:">findNodeWithData: item	| searchNode returnNode |	searchNode := Smalltalk.BinaryNode new initialize.	returnNode := Smalltalk.BinaryNode new initialize.		searchNode data:item.	self isEmpty		ifFalse:[returnNode := self findNode:searchNode subtree:self root].	^returnNode</body>
-
-<body package="HeapCalculator" selector="display:">display:oStream	| aQueue current tString |	tString := String new.	aQueue := Smalltalk.Queue new initialize.	self isEmpty		ifFalse:[			"Add our root to the queue"			aQueue enqueue: self root.			[aQueue numberOfItems &gt; 0] whileTrue: [				"Pop first item, print it out, add its children"				current := aQueue dequeue.				"Place value into string and then onto the stream"				tString := current data printString,' '.				oStream nextPutAll:tString.				current hasLeftChild ifTrue:[aQueue enqueue:current leftChild.].				current hasRightChild ifTrue:[aQueue enqueue:current rightChild.].].].</body>
-
-<body package="HeapCalculator" selector="findNode:subtree:">findNode:aNode subtree:subRoot	| searchNode lSearchNode rSearchNode |		subRoot = aNode			ifTrue:[^subRoot.]			ifFalse:[				"Check left branch"				subRoot hasLeftChild ifTrue:[lSearchNode := self findNode:aNode subtree:subRoot leftChild].				"Check right branch"				subRoot hasRightChild ifTrue:[rSearchNode := self findNode:aNode subtree:subRoot rightChild].].	lSearchNode == nil		ifFalse:[searchNode := lSearchNode].	rSearchNode == nil		ifFalse:[searchNode := rSearchNode].		^searchNode</body>
-</methods>
-
-<methods>
-<class-id>BinaryHeap</class-id> <category>copying</category>
-
-<body package="HeapCalculator" selector="copy">copy	| heapCopy |	heapCopy := Smalltalk.BinaryHeap new initialize.		self copyNode:(self root) into:heapCopy.	^heapCopy</body>
-
-<body package="HeapCalculator" selector="copyNode:into:">copyNode:aNode into:newHeap	"Insert data into new heap"	newHeap add:aNode data.	"Do same for children"	aNode hasLeftChild		ifTrue:[self copyNode:(aNode leftChild) into:newHeap].	aNode hasRightChild		ifTrue:[self copyNode:(aNode rightChild) into:newHeap].</body>
-</methods>
-
-<methods>
-<class-id>BinaryHeap</class-id> <category>computation</category>
-
-<body package="HeapCalculator" selector="difference:">difference: aHeap	| newHeap |	"Make a copy of ourself"	newHeap := self copy.	"Go through second heap and remove identical objects"	newHeap isEmpty		ifFalse:[newHeap traverse:(newHeap root) andRemoveDuplicatesFrom:aHeap.].	^newHeap</body>
-
-<body package="HeapCalculator" selector="union:">union: aHeap	| newHeap |	newHeap := Smalltalk.BinaryHeap new initialize.	"Add contents of Heap One"	self isEmpty		ifFalse:[self traverse:(self root) andAddAllTo:newHeap.].	"Add contents of Heap Two"	aHeap isEmpty		ifFalse:[self traverse:(aHeap root) andAddAllTo:newHeap.].	^newHeap</body>
-
-<body package="HeapCalculator" selector="traverse:andRemoveDuplicatesFrom:">traverse:subRoot andRemoveDuplicatesFrom:heap	"Check if data is in the other heap"	(heap exists:subRoot data)		ifTrue:[self removeElement:subRoot data.].	"Traverse children"	subRoot hasChildren		ifTrue:[			subRoot hasLeftChild				ifTrue:[self traverse:(subRoot leftChild) andRemoveDuplicatesFrom:heap].			subRoot hasRightChild				ifTrue:[self traverse:(subRoot rightChild) andRemoveDuplicatesFrom:heap].].	self halt.</body>
-
-<body package="HeapCalculator" selector="intersection:">intersection: aHeap	| newHeap |	newHeap := Smalltalk.BinaryHeap new initialize.	"Being traversal of Heap One"	self isEmpty		ifFalse:[self traverse:(aHeap root) andAddDuplicatesTo:newHeap].		^newHeap</body>
-
-<body package="HeapCalculator" selector="traverse:andAddAllTo:">traverse:subRoot andAddAllTo:heap	"Add the data of our root"	heap add:subRoot data.	"Traverse children"	subRoot hasChildren		ifTrue:[			subRoot hasLeftChild				ifTrue:[self traverse:(subRoot leftChild) andAddAllTo:heap].			subRoot hasRightChild				ifTrue:[self traverse:(subRoot rightChild) andAddAllTo:heap].].</body>
-
-<body package="HeapCalculator" selector="traverse:andAddDuplicatesTo:">traverse:subRoot andAddDuplicatesTo:heap	"Add the data of our root"	(self exists:subRoot data)		ifTrue:[heap add:subRoot data.].	"Traverse children"	subRoot hasChildren		ifTrue:[			subRoot hasLeftChild				ifTrue:[self traverse:(subRoot leftChild) andAddDuplicatesTo:heap].			subRoot hasRightChild				ifTrue:[self traverse:(subRoot rightChild) andAddDuplicatesTo:heap].].</body>
-</methods>
-
-<methods>
-<class-id>BinaryHeap</class-id> <category>initialize-release</category>
-
-<body package="HeapCalculator" selector="initialize">initialize	"Initialize a newly created instance. This method must answer the receiver."	super initialize.	root := nil.	last := nil.		^self</body>
-</methods>
-
-<methods>
 <class-id>BinaryHeap</class-id> <category>modify</category>
 
 <body package="HeapCalculator" selector="addToNextNode:">addToNextNode: aNode	| current |	current := (self last).	"Move to node parent while node is not a left child or root"	[current isRightChild] whileTrue: [current := current parent.].		"If current is a left child then set to its sibling, otherwise leave it at root"	current isLeftChild ifTrue:  [current hasSibling ifTrue: [current := current parent rightChild] ifFalse: [self last: aNode. current parent rightChild: aNode.^self.].].		"Move down the tree and find the bottom left child"	[current hasLeftChild] whileTrue: [current := current leftChild.].	"Now we have the correct placement, set left child and set last"	current leftChild: aNode.	self last: aNode.	^self.</body>
@@ -275,51 +239,96 @@
 
 <body package="HeapCalculator" selector="removeLast">removeLast	| current |	current := self last.	current isRoot		"If last is root, delete root"		ifTrue:[self root: nil]		"If last is anything else, move to parent and delete correct child"		ifFalse:[			current isLeftChild				ifTrue:[					current := current parent.					current leftChild: nil.]				ifFalse:[					current := current parent.					current rightChild: nil.].].	"Now we have deleted last, we need to update it's location"	self findNextNode.</body>
 
-<body package="HeapCalculator" selector="add:">add: data		| aNode |	aNode := Smalltalk.BinaryNode new initialize.	aNode data:data.		"Check to make sure item doesn't exist in heap"	(self exists:data)		ifFalse:[			root == nil				"If we have an empty heap, add at root"				ifTrue: [self root: aNode. self last: aNode.]				"Otherwise find next positoin"				ifFalse: [self addToNextNode:aNode. self sort.].].</body>
+<body package="HeapCalculator" selector="add:">add: data		| aNode |	aNode := self last class new initialize.	aNode data:data.		"Check to make sure item doesn't exist in heap"	(self exists:data)		ifFalse:[			root == nil				"If we have an empty heap, add at root"				ifTrue: [self root: aNode. self last: aNode.]				"Otherwise find next positoin"				ifFalse: [self addToNextNode:aNode. self sort.].].</body>
 </methods>
 
 <methods>
-<class-id>BinaryHeap</class-id> <category>tracing</category>
+<class-id>BinaryHeap</class-id> <category>computation</category>
 
-<body package="HeapCalculator" selector="findNextSpot">findNextSpot	| nextSpot |	"find next spot"	^nextSpot</body>
+<body package="HeapCalculator" selector="difference:">difference: aHeap	| newHeap |	"Make a copy of ourself"	newHeap := self copy.	"Go through second heap and remove identical objects"	newHeap isEmpty		ifFalse:[newHeap traverse:(newHeap root) andRemoveDuplicatesFrom:aHeap.].	^newHeap</body>
+
+<body package="HeapCalculator" selector="union:">union: aHeap	| newHeap |	newHeap := self class new initialize.	"Add contents of Heap One"	self isEmpty		ifFalse:[self traverse:(self root) andAddAllTo:newHeap.].	"Add contents of Heap Two"	aHeap isEmpty		ifFalse:[self traverse:(aHeap root) andAddAllTo:newHeap.].	^newHeap</body>
+
+<body package="HeapCalculator" selector="traverse:andRemoveDuplicatesFrom:">traverse:subRoot andRemoveDuplicatesFrom:heap	"Check if data is in the other heap"	(heap exists:subRoot data)		ifTrue:[self removeElement:subRoot data.].	"Traverse children"	subRoot hasChildren		ifTrue:[			subRoot hasLeftChild				ifTrue:[self traverse:(subRoot leftChild) andRemoveDuplicatesFrom:heap].			subRoot hasRightChild				ifTrue:[self traverse:(subRoot rightChild) andRemoveDuplicatesFrom:heap].].</body>
+
+<body package="HeapCalculator" selector="intersection:">intersection: aHeap	| newHeap |	newHeap := self class new initialize.	"Being traversal of Heap One"	self isEmpty		ifFalse:[self traverse:(aHeap root) andAddDuplicatesTo:newHeap].		^newHeap</body>
+
+<body package="HeapCalculator" selector="traverse:andAddAllTo:">traverse:subRoot andAddAllTo:heap	"Add the data of our root"	heap add:subRoot data.	"Traverse children"	subRoot hasChildren		ifTrue:[			subRoot hasLeftChild				ifTrue:[self traverse:(subRoot leftChild) andAddAllTo:heap].			subRoot hasRightChild				ifTrue:[self traverse:(subRoot rightChild) andAddAllTo:heap].].</body>
+
+<body package="HeapCalculator" selector="traverse:andAddDuplicatesTo:">traverse:subRoot andAddDuplicatesTo:heap	"Add the data of our root"	(self exists:subRoot data)		ifTrue:[heap add:subRoot data.].	"Traverse children"	subRoot hasChildren		ifTrue:[			subRoot hasLeftChild				ifTrue:[self traverse:(subRoot leftChild) andAddDuplicatesTo:heap].			subRoot hasRightChild				ifTrue:[self traverse:(subRoot rightChild) andAddDuplicatesTo:heap].].</body>
+</methods>
+
+<methods>
+<class-id>BinaryHeap</class-id> <category>accessing</category>
+
+<body package="HeapCalculator" selector="find:subtree:">find: aNode subtree: subRoot	| found |	found := false.	subRoot = aNode			ifTrue:[found := true]			ifFalse:[				subRoot hasLeftChild ifTrue:[found := found | (self find:aNode subtree:subRoot leftChild)].				subRoot hasRightChild ifTrue:[found := found | (self find:aNode subtree:subRoot rightChild)].].	^found.</body>
+
+<body package="HeapCalculator" selector="display">display	| aQueue current |	aQueue := Smalltalk.Queue new initialize.	self isEmpty		ifFalse:[			"Add our root to the queue"			aQueue enqueue: self root.			[aQueue numberOfItems &gt; 0] whileTrue: [				"Pop first item, print it out, add its children"				current := aQueue dequeue.				current hasLeftChild ifTrue:[aQueue enqueue:current leftChild.].				current hasRightChild ifTrue:[aQueue enqueue:current rightChild.].].].</body>
+
+<body package="HeapCalculator" selector="root">root	^root</body>
+
+<body package="HeapCalculator" selector="isEmpty">isEmpty	^self root == nil</body>
+
+<body package="HeapCalculator" selector="exists:">exists: findData	| current searchNode |	self isEmpty		ifFalse:[			current := self root.			searchNode := self root class new initialize.			searchNode data: findData.			^(self find:searchNode subtree:current).]		ifTrue:[^false].</body>
+
+<body package="HeapCalculator" selector="last">last	^last</body>
+
+<body package="HeapCalculator" selector="last:">last: anObject	last := anObject</body>
+
+<body package="HeapCalculator" selector="root:">root: anObject	root := anObject</body>
+
+<body package="HeapCalculator" selector="findNodeWithData:">findNodeWithData: item	| searchNode returnNode |	self isEmpty		ifFalse:[ 			searchNode := self root class new initialize. 			returnNode := self root class new initialize. 			searchNode data:item. 			returnNode := self findNode:searchNode subtree:self root].	^returnNode</body>
+
+<body package="HeapCalculator" selector="display:">display:oStream	| aQueue current tString |	tString := String new.	aQueue := Smalltalk.Queue new initialize.	self isEmpty		ifFalse:[			"Add our root to the queue"			aQueue enqueue: self root.			[aQueue numberOfItems &gt; 0] whileTrue: [				"Pop first item, print it out, add its children"				current := aQueue dequeue.				"Place value into string and then onto the stream"				tString := current data printString,' '.				oStream nextPutAll:tString.				current hasLeftChild ifTrue:[aQueue enqueue:current leftChild.].				current hasRightChild ifTrue:[aQueue enqueue:current rightChild.].].].</body>
+
+<body package="HeapCalculator" selector="findNode:subtree:">findNode:aNode subtree:subRoot	| searchNode lSearchNode rSearchNode |		subRoot = aNode			ifTrue:[^subRoot.]			ifFalse:[				"Check left branch"				subRoot hasLeftChild ifTrue:[lSearchNode := self findNode:aNode subtree:subRoot leftChild].				"Check right branch"				subRoot hasRightChild ifTrue:[rSearchNode := self findNode:aNode subtree:subRoot rightChild].].	lSearchNode == nil		ifFalse:[searchNode := lSearchNode].	rSearchNode == nil		ifFalse:[searchNode := rSearchNode].		^searchNode</body>
+</methods>
+
+<methods>
+<class-id>BinaryHeap</class-id> <category>copying</category>
+
+<body package="HeapCalculator" selector="copy">copy	| heapCopy |	heapCopy := self class new initialize.		self copyNode:(self root) into:heapCopy.	^heapCopy</body>
+
+<body package="HeapCalculator" selector="copyNode:into:">copyNode:aNode into:newHeap	"Insert data into new heap"	newHeap add:aNode data.	"Do same for children"	aNode hasLeftChild		ifTrue:[self copyNode:(aNode leftChild) into:newHeap].	aNode hasRightChild		ifTrue:[self copyNode:(aNode rightChild) into:newHeap].</body>
+</methods>
+
+<methods>
+<class-id>BinaryHeap</class-id> <category>initialize-release</category>
+
+<body package="HeapCalculator" selector="initialize">initialize	"Initialize a new Binary Heap. Since we depend on root to be nil for empty heaps we	initialize last to be a new node of binary type. When we create new nodes we will	reference it's class since we know it will always have one."	super initialize.	root := nil.	last := Smalltalk.BinaryNode new initialize.		^self</body>
 </methods>
 
 
 <methods>
-<class-id>TertiaryNode class</class-id> <category>instance creation</category>
+<class-id>TertiaryHeap</class-id> <category>modify</category>
 
-<body package="HeapCalculator" selector="new">new	"Answer a newly created and initialized instance."	^super new initialize</body>
-</methods>
-
-
-<methods>
-<class-id>TertiaryNode</class-id> <category>accessing</category>
-
-<body package="HeapCalculator" selector="data">data	^data</body>
-
-<body package="HeapCalculator" selector="leftChild">leftChild	^leftChild</body>
-
-<body package="HeapCalculator" selector="rightChild:">rightChild: anObject	rightChild := anObject</body>
-
-<body package="HeapCalculator" selector="data:">data: anObject	data := anObject</body>
-
-<body package="HeapCalculator" selector="rightChild">rightChild	^rightChild</body>
-
-<body package="HeapCalculator" selector="parent">parent	^parent</body>
-
-<body package="HeapCalculator" selector="middleChild:">middleChild: anObject	middleChild := anObject</body>
-
-<body package="HeapCalculator" selector="parent:">parent: anObject	parent := anObject</body>
-
-<body package="HeapCalculator" selector="middleChild">middleChild	^middleChild</body>
-
-<body package="HeapCalculator" selector="leftChild:">leftChild: anObject	leftChild := anObject</body>
+<body package="HeapCalculator" selector="addToNextNode:">addToNextNode: aNode	| current |	current := (self last).	"Move to node parent while node is not a left child or root"	[current isRightChild] whileTrue: [current := current parent.].		"If current is a left child then set to its middle sibling"	current isLeftChild ifTrue:  [current hasMiddleChild ifTrue: [current := current parent middleChild] ifFalse: [self last: aNode. current parent middleChild: aNode.^self.].].		"If current is a middle child then set to its right sibling, otherwise leave it at root"		current isMiddleChild ifTrue:  [current hasRightChild ifTrue: [current := current parent rightChild] ifFalse: [self last: aNode. current parent rightChild: aNode.^self.].].	"Move down the tree and find the bottom left child"	[current hasLeftChild] whileTrue: [current := current leftChild.].	"Now we have the correct placement, set left child and set last"	current leftChild: aNode.	self last: aNode.	^self.</body>
 </methods>
 
 <methods>
-<class-id>TertiaryNode</class-id> <category>initialize-release</category>
+<class-id>TertiaryHeap</class-id> <category>accessing</category>
 
-<body package="HeapCalculator" selector="initialize">initialize	super initialize.	data := nil.	parent := nil.	leftChild := nil.	middleChild := nil.	rightChild := nil.	^self</body>
+<body package="HeapCalculator" selector="display:">display:oStream	| aQueue current tString |	tString := String new.	aQueue := Smalltalk.Queue new initialize.	self isEmpty		ifFalse:[			"Add our root to the queue"			aQueue enqueue: self root.			[aQueue numberOfItems &gt; 0] whileTrue: [				"Pop first item, print it out, add its children"				current := aQueue dequeue.				"Place value into string and then onto the stream"				tString := current data printString,' '.				oStream nextPutAll:tString.				current hasLeftChild ifTrue:[aQueue enqueue:current leftChild.].				current hasMiddleChild ifTrue:[aQueue enqueue:current middleChild.].				current hasRightChild ifTrue:[aQueue enqueue:current rightChild.].].].</body>
+
+<body package="HeapCalculator" selector="findNode:subtree:">findNode:aNode subtree:subRoot	| searchNode lSearchNode mSearchNode rSearchNode |		subRoot = aNode			ifTrue:[^subRoot.]			ifFalse:[				"Check left branch"				subRoot hasLeftChild ifTrue:[lSearchNode := self findNode:aNode subtree:subRoot leftChild].				"Check middle branch"				subRoot hasMiddleChild ifTrue:[mSearchNode := self findNode:aNode subtree:subRoot middleChild].				"Check right branch"				subRoot hasRightChild ifTrue:[rSearchNode := self findNode:aNode subtree:subRoot rightChild].].	lSearchNode == nil		ifFalse:[searchNode := lSearchNode].	mSearchNode == nil		ifFalse:[searchNode := mSearchNode].	rSearchNode == nil		ifFalse:[searchNode := rSearchNode].		^searchNode</body>
+
+<body package="HeapCalculator" selector="find:subtree:">find: aNode subtree: subRoot	| found |	found := false.	subRoot = aNode			ifTrue:[found := true]			ifFalse:[				subRoot hasLeftChild ifTrue:[found := found | (self find:aNode subtree:subRoot leftChild)].				subRoot hasMiddleChild ifTrue:[found := found | (self find:aNode subtree:subRoot middleChild)].				subRoot hasRightChild ifTrue:[found := found | (self find:aNode subtree:subRoot rightChild)].].	^found.</body>
+</methods>
+
+<methods>
+<class-id>TertiaryHeap</class-id> <category>computation</category>
+
+<body package="HeapCalculator" selector="traverse:andRemoveDuplicatesFrom:">traverse:subRoot andRemoveDuplicatesFrom:heap	"Check if data is in the other heap"	(heap exists:subRoot data)		ifTrue:[self removeElement:subRoot data.].	"Traverse children"	subRoot hasChildren		ifTrue:[			subRoot hasLeftChild				ifTrue:[self traverse:(subRoot leftChild) andRemoveDuplicatesFrom:heap].			subRoot hasMiddleChild				ifTrue:[self traverse:(subRoot middleChild) andRemoveDuplicatesFrom:heap].			subRoot hasRightChild				ifTrue:[self traverse:(subRoot rightChild) andRemoveDuplicatesFrom:heap].].</body>
+
+<body package="HeapCalculator" selector="traverse:andAddAllTo:">traverse:subRoot andAddAllTo:heap	"Add the data of our root"	heap add:subRoot data.	"Traverse children"	subRoot hasChildren		ifTrue:[			subRoot hasLeftChild				ifTrue:[self traverse:(subRoot leftChild) andAddAllTo:heap].			subRoot hasMiddleChild				ifTrue:[self traverse:(subRoot middleChild) andAddAllTo:heap].			subRoot hasRightChild				ifTrue:[self traverse:(subRoot rightChild) andAddAllTo:heap].].</body>
+
+<body package="HeapCalculator" selector="traverse:andAddDuplicatesTo:">traverse:subRoot andAddDuplicatesTo:heap	"Add the data of our root"	(self exists:subRoot data)		ifTrue:[heap add:subRoot data.].	"Traverse children"	subRoot hasChildren		ifTrue:[			subRoot hasLeftChild				ifTrue:[self traverse:(subRoot leftChild) andAddDuplicatesTo:heap].			subRoot hasMiddleChild				ifTrue:[self traverse:(subRoot middleChild) andAddDuplicatesTo:heap].						subRoot hasRightChild				ifTrue:[self traverse:(subRoot rightChild) andAddDuplicatesTo:heap].].</body>
+</methods>
+
+<methods>
+<class-id>TertiaryHeap</class-id> <category>initialize-release</category>
+
+<body package="HeapCalculator" selector="initialize">initialize	"Initialize a new Tertiary Heap. Since we depend on root to be nil for empty heaps we	initialize last to be a new node of tertiary type. When we create new nodes we will	reference it's class since we know it will always have one."	super initialize.	last := Smalltalk.TertiaryNode new initialize.	^self</body>
 </methods>
 
 
@@ -341,7 +350,7 @@
 
 <body package="HeapCalculator" selector="&gt;">&gt; aNode	^(self data) &gt; (aNode data)</body>
 
-<body package="HeapCalculator" selector="hasSibling">hasSibling	self parent leftChild == self		ifTrue:[self parent rightChild == nil ifTrue:[^false] ifFalse:[^true]]		ifFalse:[self parent leftChild ==nil ifTrue:[^false] ifFalse:[^true]].</body>
+<body package="HeapCalculator" selector="hasSibling">hasSibling	self parent == nil		ifFalse:[			self parent leftChild == self				ifTrue:[self parent rightChild == nil ifTrue:[^false] ifFalse:[^true]]				ifFalse:[self parent leftChild ==nil ifTrue:[^false] ifFalse:[^true]].]		ifTrue:[^false].</body>
 
 <body package="HeapCalculator" selector="isRoot">isRoot	^self parent == nil</body>
 
@@ -380,6 +389,33 @@
 <class-id>BinaryNode</class-id> <category>initialize-release</category>
 
 <body package="HeapCalculator" selector="initialize">initialize	super initialize.	data := nil.	leftChild := nil.	rightChild := nil.	parent := nil.	^self</body>
+</methods>
+
+
+<methods>
+<class-id>TertiaryNode</class-id> <category>comparing</category>
+
+<body package="HeapCalculator" selector="hasMiddleChild">hasMiddleChild	self middleChild == nil		ifTrue:[^false]		ifFalse:[^true]</body>
+
+<body package="HeapCalculator" selector="hasChildren">hasChildren	^((self hasLeftChild) | (self hasMiddleChild) | (self hasRightChild))</body>
+
+<body package="HeapCalculator" selector="hasSibling">hasSibling	self parent == nil		ifFalse:[			self parent leftChild == self				ifTrue:[((self parent middleChild == nil) &amp; (self parent rightChild == nil)) ifTrue:[^false] ifFalse:[^true].].			self parent middleChild == self				ifTrue:[((self parent leftChild == nil) &amp; (self parent rightChild == nil)) ifTrue:[^false] ifFalse:[^true].].			self parent rightChild == self				ifTrue:[((self parent leftChild == nil) &amp; (self parent middleChild == nil)) ifTrue:[^false] ifFalse:[^true].].]		ifTrue:[^false].</body>
+
+<body package="HeapCalculator" selector="isMiddleChild">isMiddleChild	self hasParent		ifTrue:[^(self parent middleChild == self)]		ifFalse:[^false].</body>
+</methods>
+
+<methods>
+<class-id>TertiaryNode</class-id> <category>accessing</category>
+
+<body package="HeapCalculator" selector="middleChild">middleChild	^middleChild</body>
+
+<body package="HeapCalculator" selector="middleChild:">middleChild: anObject	middleChild := anObject.	anObject == nil 		ifFalse:[anObject parent: self.]</body>
+</methods>
+
+<methods>
+<class-id>TertiaryNode</class-id> <category>initialize-release</category>
+
+<body package="HeapCalculator" selector="initialize">initialize	super initialize.	middleChild := nil.	^self</body>
 </methods>
 
 
