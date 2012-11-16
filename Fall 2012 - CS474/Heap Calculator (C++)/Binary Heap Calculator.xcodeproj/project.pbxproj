@@ -1,0 +1,241 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		36D3C1C11649A64200429CC7 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 36D3C1C01649A64200429CC7 /* main.cpp */; };
+		36D3C1C31649A64200429CC7 /* Binary_Heap_Calculator.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 36D3C1C21649A64200429CC7 /* Binary_Heap_Calculator.1 */; };
+		36D3C1CB1649A6CA00429CC7 /* BinaryHeap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 36D3C1C91649A6CA00429CC7 /* BinaryHeap.cpp */; };
+		36D3C1CE1649A6D600429CC7 /* BinaryNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 36D3C1CC1649A6D600429CC7 /* BinaryNode.cpp */; };
+		36D3C1D9164E497300429CC7 /* Set.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 36D3C1D7164E497300429CC7 /* Set.cpp */; };
+		36D3C1DC164E4AC700429CC7 /* SetCalculator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 36D3C1DA164E4AC700429CC7 /* SetCalculator.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		36D3C1BA1649A64200429CC7 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				36D3C1C31649A64200429CC7 /* Binary_Heap_Calculator.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		36D3C1BC1649A64200429CC7 /* Binary Heap Calculator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Binary Heap Calculator"; sourceTree = BUILT_PRODUCTS_DIR; };
+		36D3C1C01649A64200429CC7 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		36D3C1C21649A64200429CC7 /* Binary_Heap_Calculator.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = Binary_Heap_Calculator.1; sourceTree = "<group>"; };
+		36D3C1C91649A6CA00429CC7 /* BinaryHeap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BinaryHeap.cpp; sourceTree = "<group>"; };
+		36D3C1CA1649A6CA00429CC7 /* BinaryHeap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BinaryHeap.h; sourceTree = "<group>"; };
+		36D3C1CC1649A6D600429CC7 /* BinaryNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BinaryNode.cpp; sourceTree = "<group>"; };
+		36D3C1CD1649A6D600429CC7 /* BinaryNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BinaryNode.h; sourceTree = "<group>"; };
+		36D3C1D51649AF5400429CC7 /* Queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Queue.h; sourceTree = "<group>"; };
+		36D3C1D7164E497300429CC7 /* Set.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Set.cpp; sourceTree = "<group>"; };
+		36D3C1D8164E497300429CC7 /* Set.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Set.h; sourceTree = "<group>"; };
+		36D3C1DA164E4AC700429CC7 /* SetCalculator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SetCalculator.cpp; sourceTree = "<group>"; };
+		36D3C1DB164E4AC700429CC7 /* SetCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetCalculator.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		36D3C1B91649A64200429CC7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		36D3C1B11649A64200429CC7 = {
+			isa = PBXGroup;
+			children = (
+				36D3C1BF1649A64200429CC7 /* Binary Heap Calculator */,
+				36D3C1BD1649A64200429CC7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		36D3C1BD1649A64200429CC7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				36D3C1BC1649A64200429CC7 /* Binary Heap Calculator */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		36D3C1BF1649A64200429CC7 /* Binary Heap Calculator */ = {
+			isa = PBXGroup;
+			children = (
+				36D3C1C01649A64200429CC7 /* main.cpp */,
+				36D3C1C21649A64200429CC7 /* Binary_Heap_Calculator.1 */,
+				36D3C1C91649A6CA00429CC7 /* BinaryHeap.cpp */,
+				36D3C1CA1649A6CA00429CC7 /* BinaryHeap.h */,
+				36D3C1CC1649A6D600429CC7 /* BinaryNode.cpp */,
+				36D3C1CD1649A6D600429CC7 /* BinaryNode.h */,
+				36D3C1D51649AF5400429CC7 /* Queue.h */,
+				36D3C1D7164E497300429CC7 /* Set.cpp */,
+				36D3C1D8164E497300429CC7 /* Set.h */,
+				36D3C1DA164E4AC700429CC7 /* SetCalculator.cpp */,
+				36D3C1DB164E4AC700429CC7 /* SetCalculator.h */,
+			);
+			path = "Binary Heap Calculator";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		36D3C1BB1649A64200429CC7 /* Binary Heap Calculator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 36D3C1C61649A64200429CC7 /* Build configuration list for PBXNativeTarget "Binary Heap Calculator" */;
+			buildPhases = (
+				36D3C1B81649A64200429CC7 /* Sources */,
+				36D3C1B91649A64200429CC7 /* Frameworks */,
+				36D3C1BA1649A64200429CC7 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Binary Heap Calculator";
+			productName = "Binary Heap Calculator";
+			productReference = 36D3C1BC1649A64200429CC7 /* Binary Heap Calculator */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		36D3C1B31649A64200429CC7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Andrew Long";
+			};
+			buildConfigurationList = 36D3C1B61649A64200429CC7 /* Build configuration list for PBXProject "Binary Heap Calculator" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 36D3C1B11649A64200429CC7;
+			productRefGroup = 36D3C1BD1649A64200429CC7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				36D3C1BB1649A64200429CC7 /* Binary Heap Calculator */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		36D3C1B81649A64200429CC7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				36D3C1C11649A64200429CC7 /* main.cpp in Sources */,
+				36D3C1CB1649A6CA00429CC7 /* BinaryHeap.cpp in Sources */,
+				36D3C1CE1649A6D600429CC7 /* BinaryNode.cpp in Sources */,
+				36D3C1D9164E497300429CC7 /* Set.cpp in Sources */,
+				36D3C1DC164E4AC700429CC7 /* SetCalculator.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		36D3C1C41649A64200429CC7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		36D3C1C51649A64200429CC7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		36D3C1C71649A64200429CC7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		36D3C1C81649A64200429CC7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		36D3C1B61649A64200429CC7 /* Build configuration list for PBXProject "Binary Heap Calculator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				36D3C1C41649A64200429CC7 /* Debug */,
+				36D3C1C51649A64200429CC7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		36D3C1C61649A64200429CC7 /* Build configuration list for PBXNativeTarget "Binary Heap Calculator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				36D3C1C71649A64200429CC7 /* Debug */,
+				36D3C1C81649A64200429CC7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 36D3C1B31649A64200429CC7 /* Project object */;
+}
