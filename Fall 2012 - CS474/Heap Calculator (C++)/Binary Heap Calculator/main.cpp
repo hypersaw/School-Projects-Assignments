@@ -71,7 +71,16 @@ int main(int argc, const char * argv[])
     std::cout << "9 Exists: " << aHeap.exists(9) << std::endl;
     std::cout << std::endl;
     
-    getchar();
+    std::cout << "<CONSOLE> Removing Elements" << std::endl;
+    std::cout << "Remove 1: " << aHeap.remove(1) << std::endl;
+    std::cout << "Remove 9: " << aHeap.remove(9) << std::endl;
+    std::cout << std::endl;
+    
+    std::cout << "<CONSOLE> Display Heap" << std::endl;
+    aHeap.display();
+    std::cout << std::endl;
+    
+    std::cout << "Clear completed." << std::endl;
     std::cout << "<CONSOLE> Exiting. Goodbye." << std::endl;
     return 0;
 }

@@ -15,6 +15,7 @@ class BinaryNode {
 public:
     BinaryNode();
     BinaryNode(int data);
+    ~BinaryNode();
     
     BinaryNode* parent;
     BinaryNode* leftChild;

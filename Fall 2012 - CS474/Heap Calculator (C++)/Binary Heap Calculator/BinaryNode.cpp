@@ -16,8 +16,23 @@ BinaryNode::BinaryNode(){
 }
 
 BinaryNode::BinaryNode(int newData){
-    BinaryNode::BinaryNode();
+    parent = NULL;
     data = newData;
+    leftChild = NULL;
+    rightChild = NULL;
+}
+
+BinaryNode::~BinaryNode(){
+    // Since we automatically make connections when we use
+    // the setXChild methods, we need to clean up the ties
+    if(hasParent()){
+        if(isLeftChild()){
+            parent->leftChild = NULL;
+        }
+        else{
+            parent->rightChild = NULL;
+        }
+    }
 }
 
 void BinaryNode::setLeftChild(BinaryNode &newLeftChild){

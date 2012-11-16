@@ -43,13 +43,15 @@ private:
     void clear_recursive(BinaryNode* subRoot);
     
     // Finding
-    BinaryNode& find(int searchData);
-    void find_recursive(BinaryNode* subRoot, BinaryNode* searchData, BinaryNode* foundNode);
-    void exists_recursive(BinaryNode& subRoot, BinaryNode& searchData, int& found);
+    BinaryNode* find(int searchData);
+    BinaryNode* find_recursive(BinaryNode* subRoot, BinaryNode* searchData);
+    void exists_recursive(BinaryNode* subRoot, BinaryNode* searchData, int& found);
+    void setLast();
     
     // Sorting
     void sort();
     void sort_recursive();
+    void heapify(BinaryNode* subRoot);
     
 protected:
 };

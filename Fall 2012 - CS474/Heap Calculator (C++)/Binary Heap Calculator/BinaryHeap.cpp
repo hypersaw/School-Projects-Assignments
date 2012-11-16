@@ -64,7 +64,20 @@ int BinaryHeap::add(int data){
 }
 
 int BinaryHeap::remove(int data){
-   
+    BinaryNode* foundNode;
+    foundNode = find(data);
+    
+    if(foundNode){
+        foundNode->data = last->data;
+        last->data = data;
+        heapify(foundNode);
+        setLast();
+        
+        delete last;
+        last = NULL;
+        return 1;
+    }
+    
     return 0;
 }
 
@@ -96,17 +109,10 @@ void BinaryHeap::display(){
 
 void BinaryHeap::clear(){
     if(!isEmpty()){
-        if(root->hasLeftChild()){
-            clear_recursive(root->leftChild);
-            delete root->leftChild;
-        }
-        if(root->hasRightChild()){
-            clear_recursive(root->rightChild);
-            delete root->rightChild;
-        }
+        clear_recursive(root);
         
-        delete root; root = NULL;
-        delete last; last = NULL;
+        delete root;
+        root = NULL; last = NULL;
     }
 }
 
@@ -158,21 +164,22 @@ BinaryHeap& BinaryHeap::operator=(const BinaryHeap &otherHeap){
     return *this;
 }
 
-BinaryNode& BinaryHeap::find(int searchData){
+BinaryNode* BinaryHeap::find(int searchData){
     BinaryNode* foundNode = NULL;
     
     if(!isEmpty()){
         // We have a non-empty list, make a new node and search
         BinaryNode searchNode(searchData);
-        find_recursive(root, &searchNode, foundNode);
+        foundNode = find_recursive(root, &searchNode);
     }
     
-    return *foundNode;
+    return foundNode;
 }
 
-void BinaryHeap::find_recursive(BinaryNode* subRoot, BinaryNode* searchNode, BinaryNode* foundNode){
+BinaryNode* BinaryHeap::find_recursive(BinaryNode* subRoot, BinaryNode* searchNode){
+    BinaryNode* foundNode = NULL;
     
-    if(subRoot == searchNode){
+    if(*subRoot == *searchNode){
         foundNode = subRoot;
     }
     
@@ -180,12 +187,22 @@ void BinaryHeap::find_recursive(BinaryNode* subRoot, BinaryNode* searchNode, Bin
     // Else, search children
     if(foundNode == NULL){
         if(subRoot->leftChild != NULL){
-            find_recursive(subRoot->leftChild, searchNode, foundNode);
+            foundNode = find_recursive(subRoot->leftChild, searchNode);
+            if(foundNode){
+                return foundNode;
+            }
         }
-        if(subRoot->rightChild != NULL){
-            find_recursive(subRoot->rightChild, searchNode, foundNode);
+        if(foundNode == NULL){
+            if(subRoot->rightChild != NULL){
+                foundNode = find_recursive(subRoot->rightChild, searchNode);
+                if(foundNode){
+                    return foundNode;
+                }
+            }
         }
     }
+    
+    return foundNode;
 }
 
 int BinaryHeap::exists(int data){
@@ -193,13 +210,13 @@ int BinaryHeap::exists(int data){
     int found = 0;
     
     if(!isEmpty()){
-        exists_recursive(*root,searchNode,found);
+        exists_recursive(root,&searchNode,found);
     }
     
     return found;
 }
 
-void  BinaryHeap::exists_recursive(BinaryNode& subRoot, BinaryNode& searchNode, int &found){
+void  BinaryHeap::exists_recursive(BinaryNode* subRoot, BinaryNode* searchNode, int &found){
     // If our root is equal to what we are searching for
     // then we set found to 1.
     if(subRoot == searchNode){
@@ -208,12 +225,33 @@ void  BinaryHeap::exists_recursive(BinaryNode& subRoot, BinaryNode& searchNode, 
     
     // If we haven't found the item then search the children
     if(found != 1){
-        if(subRoot.leftChild != NULL){
-            exists_recursive(*subRoot.leftChild, searchNode, found);
+        if(subRoot->leftChild != NULL){
+            exists_recursive(subRoot->leftChild, searchNode, found);
         }
-        if(subRoot.rightChild != NULL){
-            exists_recursive(*subRoot.rightChild, searchNode, found);
+        if(subRoot->rightChild != NULL){
+            exists_recursive(subRoot->rightChild, searchNode, found);
         }
+    }
+}
+
+void BinaryHeap::setLast(){
+    if(!last){
+        BinaryNode* currentNode = root;
+        
+        // While our node has children we will check
+        // to see if it has a right branch. If it doesn't
+        // we will set to the left (which it must have).
+        while(currentNode->hasChildren()){
+            if(currentNode->hasRightChild()){
+                currentNode = currentNode->rightChild;
+            }
+            else{
+                currentNode = currentNode->leftChild;
+            }
+        }
+        
+        // We've reached a node with no children, our last element.
+        last = currentNode;
     }
 }
 
@@ -234,3 +272,16 @@ void BinaryHeap::sort(){
     }
 }
 
+void BinaryHeap::heapify(BinaryNode* subRoot){
+    // Since the current element used to be in last, we will assume
+    // that all items above it are greater, so we will only check down.
+    if(subRoot->hasChildren()){
+        if(subRoot > subRoot->leftChild){
+            int temp;
+            temp = subRoot->data;
+            subRoot->data = subRoot->leftChild->data;
+            subRoot->leftChild->data = temp;
+            subRoot = subRoot->leftChild;
+        }
+    }
+}
