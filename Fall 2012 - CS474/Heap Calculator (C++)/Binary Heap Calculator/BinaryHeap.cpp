@@ -58,6 +58,7 @@ int BinaryHeap::add(int data){
             }
         }
         
+        // Move down the left side of the tree/subtree until we hit a leaf
         while(currentNode->hasLeftChild()){
             currentNode = currentNode->leftChild;
         }
@@ -79,6 +80,8 @@ int BinaryHeap::remove(int data){
             last->data = data;
         }
         removeLast();
+        // Check to make sure root and last are not the same
+        // otherwise set both to NULL and do not heapify
         if(!(foundNode == root && foundNode == last)){
             heapify(foundNode);
         }
@@ -275,6 +278,8 @@ void BinaryHeap::sort(){
     
     BinaryNode* currentNode = last;
     
+    // Sift the item up so long as it has a parent (not root)
+    // and is greater than it's parent.
     while(currentNode->hasParent()){
         if(*currentNode > *currentNode->parent){
             int temp = currentNode->data;
@@ -290,7 +295,7 @@ void BinaryHeap::sort(){
 
 void BinaryHeap::heapify(BinaryNode* subRoot){
     // Since the current element used to be in last, we will assume
-    // that all items above it are greater, so we will only check down.
+    // that all items above it are greater, so we will sift down.
     if(subRoot->hasChildren()){
         if(subRoot > subRoot->leftChild){
             int temp;

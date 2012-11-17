@@ -20,7 +20,7 @@ SetCalculator::~SetCalculator(){
 
 void SetCalculator::displayPrompt(){
     std::cout << "Set Calculator (C++) by Andrew Long. University of Illinois - Chicago." << std::endl;
-    char choice;
+    std::string choice;
     
     do{
         std::cout << "(C)lear C(o)py (S)witch (D)isplay (A)dd (R)emove (U)nion (I)ntersection (Q)uit" << std::endl;
@@ -28,7 +28,7 @@ void SetCalculator::displayPrompt(){
         std::cout << "(Set Two) "; setTwo->display();
         std::cout << "Choice: "; std::cin >> choice;
         
-        switch(choice){
+        switch(choice[0]){
             case 'C':
             case 'c':
                 performClear();
@@ -46,7 +46,7 @@ void SetCalculator::displayPrompt(){
                 // Add Item.
                 int addInput;
                 std::cout << "Add: "; std::cin >> addInput;
-                setOne->add(addInput);
+                addToSetOne(addInput);
             }
             break;
             case 'R':
@@ -54,7 +54,7 @@ void SetCalculator::displayPrompt(){
                 // Remove Item.
                 int removeInput;
                 std::cout << "Remove: "; std::cin >> removeInput;
-                setOne->remove(removeInput);
+                removeFromSetOne(removeInput);
             }
             break;
             case 'U':
@@ -65,9 +65,11 @@ void SetCalculator::displayPrompt(){
             case 'i':
                 performIntersection();
             break;
+            default:
+                std::cout << "Invalid input. Please stick to the defined commands." << std::endl;
         }
         std::cout << std::endl;
-    }while(choice != 'q');
+    }while(choice != "q");
 }
 
 void SetCalculator::displaySetOne(){
@@ -80,25 +82,25 @@ void SetCalculator::displaySetTwo(){
 
 void SetCalculator::addToSetOne(int data){
     if(!setOne->add(data)){
-        std::cout << "Item already exists in H1." << std::endl;
+        std::cout << "Item already exists in set one." << std::endl;
     }
 }
 
 void SetCalculator::addToSetTwo(int data){
     if(!setTwo->add(data)){
-        std::cout << "Item already exists in H2." << std::endl;
+        std::cout << "Item already exists in set two." << std::endl;
     }
 }
 
 void SetCalculator::removeFromSetOne(int data){
     if(!setOne->remove(data)){
-        std::cout << "Item does not exist in H1." << std::endl;
+        std::cout << "Item does not exist in set one." << std::endl;
     }
 }
 
 void SetCalculator::removeFromSetTwo(int data){
     if(!setTwo->remove(data)){
-        std::cout << "Item does not exist in H2." << std::endl;
+        std::cout << "Item does not exist in set two." << std::endl;
     }
 }
 

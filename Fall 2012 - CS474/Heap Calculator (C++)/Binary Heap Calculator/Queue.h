@@ -16,7 +16,6 @@ class Queue{
 public:
     Queue();
     ~Queue();
-    
     void enqueue(Type* data);
     Type* dequeue();
     int itemCount();
@@ -46,7 +45,9 @@ Queue<Type>::Queue(){
 
 template <class Type>
 Queue<Type>::~Queue(){
-
+    while(count > 0){
+        dequeue();
+    }
 }
 
 template <class Type>

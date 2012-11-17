@@ -10,6 +10,7 @@
 #define SETCALCULATOR
 
 #include <iostream>
+#include <string>
 #include "BinaryHeap.h"
 
 class SetCalculator {
