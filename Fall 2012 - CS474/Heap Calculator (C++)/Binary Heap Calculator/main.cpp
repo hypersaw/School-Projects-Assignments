@@ -59,7 +59,8 @@ int main(int argc, const char * argv[])
     std::cout << "<CONSOLE> Added 8 Items to Heap" << std::endl;
     std::cout << std::endl;
     
-    std::cout << "<CONSOLE> Display Heap" << std::endl;
+    std::cout << "<CONSOLE> Display Heap, and again to check integrity." << std::endl;
+    aHeap.display();
     aHeap.display();
     std::cout << std::endl;
     

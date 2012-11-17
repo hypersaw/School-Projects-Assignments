@@ -68,12 +68,19 @@ int BinaryHeap::remove(int data){
     foundNode = find(data);
     
     if(foundNode){
-        foundNode->data = last->data;
-        last->data = data;
-        heapify(foundNode);
-        setLast();
+        if(foundNode == last){
+            delete last;
+            last = NULL;
+            setLast();
+        }
+        else{
+            foundNode->data = last->data;
+            last->data = data;
+            //heapify(foundNode);
+            setLast();
         
-        delete last;
+            delete last;
+        }
         last = NULL;
         return 1;
     }
@@ -90,14 +97,14 @@ void BinaryHeap::display(){
     
     std::cout << "Heap: ";
     while(displayQueue.itemCount() > 0){
-        BinaryNode displayNode = displayQueue.dequeue();
-        std::cout << displayNode.data;
+        BinaryNode* displayNode = displayQueue.dequeue();
+        std::cout << displayNode->data;
         
-        if(displayNode.leftChild != NULL){
-            displayQueue.enqueue(displayNode.leftChild);
+        if(displayNode->leftChild != NULL){
+            displayQueue.enqueue(displayNode->leftChild);
         }
-        if(displayNode.rightChild != NULL){
-            displayQueue.enqueue(displayNode.rightChild);
+        if(displayNode->rightChild != NULL){
+            displayQueue.enqueue(displayNode->rightChild);
         }
         if(displayQueue.itemCount() != 0){
             std::cout << ", ";
@@ -219,7 +226,7 @@ int BinaryHeap::exists(int data){
 void  BinaryHeap::exists_recursive(BinaryNode* subRoot, BinaryNode* searchNode, int &found){
     // If our root is equal to what we are searching for
     // then we set found to 1.
-    if(subRoot == searchNode){
+    if(*subRoot == *searchNode){
         found = 1;
     }
     

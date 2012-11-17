@@ -18,7 +18,7 @@ public:
     ~Queue();
     
     void enqueue(Type* data);
-    Type dequeue();
+    Type* dequeue();
     int itemCount();
     bool isEmpty();
     
@@ -27,10 +27,10 @@ private:
     public:
         QueueItem();
         
-        QueueItem(Type data);
+        QueueItem(Type* data);
         QueueItem(const QueueItem& otherItem);
     
-        Type data;
+        Type* data;
         QueueItem* nextItem;
     };
 
@@ -52,7 +52,7 @@ Queue<Type>::~Queue(){
 template <class Type>
 void Queue<Type>::enqueue(Type* data){
     QueueItem* newItem;
-    newItem = new QueueItem(*data);
+    newItem = new QueueItem(data);
     
     if(!isEmpty()){
         QueueItem* current = first;
@@ -70,16 +70,16 @@ void Queue<Type>::enqueue(Type* data){
 }
 
 template <class Type>
-Type Queue<Type>::dequeue(){
+Type* Queue<Type>::dequeue(){
     if(!isEmpty()){
-        QueueItem* returnItem;
-        returnItem = new QueueItem(*first);
+        Type* returnData = first->data;
+        QueueItem* nextItem = first->nextItem;
 
         delete first;
-        first = returnItem->nextItem;
+        first = nextItem;
         --count;
         
-        return returnItem->data;
+        return returnData;
     }
 
     return NULL;
@@ -102,7 +102,7 @@ Queue<Type>::QueueItem::QueueItem(){
 }
 
 template <class Type>
-Queue<Type>::QueueItem::QueueItem(Type newData){
+Queue<Type>::QueueItem::QueueItem(Type* newData){
     data = newData;
     nextItem = NULL;
 }
