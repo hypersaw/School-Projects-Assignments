@@ -9,19 +9,20 @@
 #ifndef SETCALCULATOR
 #define SETCALCULATOR
 
-#include "Set.h"
+#include <iostream>
+#include "BinaryHeap.h"
 
 class SetCalculator {
 public:
     SetCalculator();
     ~SetCalculator();
 
-    void startPrompt();
+    void displayPrompt();
     
 private:
     // Sets
-    Set* setOne;
-    Set* setTwo;
+    BinaryHeap* setOne;
+    BinaryHeap* setTwo;
     
     // Display
     void displaySetOne();
@@ -41,7 +42,9 @@ private:
     void performCopy();
     void performIntersection();
     void performUnion();
-    void performDifference();
+    
+    void traverseAndAddDuplicatesTo(BinaryNode* subRoot, BinaryHeap* newHeap);
+    void traverseAndAddTo(BinaryNode* subRoot, BinaryHeap* newHeap);
 };
 
 #endif

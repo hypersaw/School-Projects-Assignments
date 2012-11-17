@@ -11,7 +11,6 @@
 		36D3C1C31649A64200429CC7 /* Binary_Heap_Calculator.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 36D3C1C21649A64200429CC7 /* Binary_Heap_Calculator.1 */; };
 		36D3C1CB1649A6CA00429CC7 /* BinaryHeap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 36D3C1C91649A6CA00429CC7 /* BinaryHeap.cpp */; };
 		36D3C1CE1649A6D600429CC7 /* BinaryNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 36D3C1CC1649A6D600429CC7 /* BinaryNode.cpp */; };
-		36D3C1D9164E497300429CC7 /* Set.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 36D3C1D7164E497300429CC7 /* Set.cpp */; };
 		36D3C1DC164E4AC700429CC7 /* SetCalculator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 36D3C1DA164E4AC700429CC7 /* SetCalculator.cpp */; };
 /* End PBXBuildFile section */
 
@@ -37,8 +36,6 @@
 		36D3C1CC1649A6D600429CC7 /* BinaryNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BinaryNode.cpp; sourceTree = "<group>"; };
 		36D3C1CD1649A6D600429CC7 /* BinaryNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BinaryNode.h; sourceTree = "<group>"; };
 		36D3C1D51649AF5400429CC7 /* Queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Queue.h; sourceTree = "<group>"; };
-		36D3C1D7164E497300429CC7 /* Set.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Set.cpp; sourceTree = "<group>"; };
-		36D3C1D8164E497300429CC7 /* Set.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Set.h; sourceTree = "<group>"; };
 		36D3C1DA164E4AC700429CC7 /* SetCalculator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SetCalculator.cpp; sourceTree = "<group>"; };
 		36D3C1DB164E4AC700429CC7 /* SetCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetCalculator.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -80,8 +77,6 @@
 				36D3C1CC1649A6D600429CC7 /* BinaryNode.cpp */,
 				36D3C1CD1649A6D600429CC7 /* BinaryNode.h */,
 				36D3C1D51649AF5400429CC7 /* Queue.h */,
-				36D3C1D7164E497300429CC7 /* Set.cpp */,
-				36D3C1D8164E497300429CC7 /* Set.h */,
 				36D3C1DA164E4AC700429CC7 /* SetCalculator.cpp */,
 				36D3C1DB164E4AC700429CC7 /* SetCalculator.h */,
 			);
@@ -142,7 +137,6 @@
 				36D3C1C11649A64200429CC7 /* main.cpp in Sources */,
 				36D3C1CB1649A6CA00429CC7 /* BinaryHeap.cpp in Sources */,
 				36D3C1CE1649A6D600429CC7 /* BinaryNode.cpp in Sources */,
-				36D3C1D9164E497300429CC7 /* Set.cpp in Sources */,
 				36D3C1DC164E4AC700429CC7 /* SetCalculator.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -234,6 +228,7 @@
 				36D3C1C81649A64200429CC7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

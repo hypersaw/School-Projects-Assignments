@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Andrew Long. All rights reserved.
 //
 
-#include "BinaryHeap.h"
+#include "SetCalculator.h"
 
 int main(int argc, const char * argv[])
 {
@@ -47,7 +47,7 @@ int main(int argc, const char * argv[])
     
     std::cout << "<CONSOLE> Adding Items to Heap" << std::endl;
     
-    BinaryHeap aHeap;
+    BinaryHeap aHeap, bHeap;
     std::cout << "Adding 1..." << std::endl; aHeap.add(1);
     std::cout << "Adding 2..." << std::endl; aHeap.add(2);
     std::cout << "Adding 3..." << std::endl; aHeap.add(3);
@@ -64,6 +64,16 @@ int main(int argc, const char * argv[])
     aHeap.display();
     std::cout << std::endl;
     
+    std::cout << "<CONSOLE> Copying (bHeap = aHeap) aHeap into bHeap" << std::endl;
+    bHeap = aHeap;
+    std::cout << "(aHeap) "; aHeap.display();
+    std::cout << "(bHeap) "; bHeap.display();
+    std::cout << std::endl;
+    
+    std::cout << "<CONSOLE> Initializing cHeap (cHeap(cHeap))" << std::endl;
+    BinaryHeap cHeap(aHeap);
+    std::cout << "(cHeap) "; cHeap.display();
+    
     std::cout << "<CONSOLE> Checking Heap 'exists' Method" << std::endl;
     std::cout << "1 Exists: " << aHeap.exists(1) << std::endl;
     std::cout << "2 Exists: " << aHeap.exists(2) << std::endl;
@@ -78,10 +88,16 @@ int main(int argc, const char * argv[])
     std::cout << std::endl;
     
     std::cout << "<CONSOLE> Display Heap" << std::endl;
-    aHeap.display();
+    std::cout << "(aHeap) "; aHeap.display();
+    std::cout << "(bHeap) "; bHeap.display();
+    std::cout << "Clear completed." << std::endl;
     std::cout << std::endl;
     
-    std::cout << "Clear completed." << std::endl;
+    std::cout << "<CONSOLE> Creating Calculator" << std::endl;
+    SetCalculator aCalc;
+    std::cout << "<CONSOLE> Starting Calculator" << std::endl;
+    aCalc.displayPrompt();
+    
     std::cout << "<CONSOLE> Exiting. Goodbye." << std::endl;
     return 0;
 }

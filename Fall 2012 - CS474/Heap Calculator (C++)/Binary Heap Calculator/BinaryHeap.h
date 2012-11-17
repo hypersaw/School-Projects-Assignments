@@ -17,6 +17,7 @@
 class BinaryHeap {
 public:
     BinaryHeap();
+    BinaryHeap(const BinaryHeap& otherHeap);
     ~BinaryHeap();
     
     BinaryNode* root;
@@ -35,12 +36,13 @@ public:
     
 private:
     // Copying
-    void copy(const BinaryHeap& otherHeap);
+    void copy(const BinaryHeap* otherHeap);
     void copy_recursive(BinaryNode* currentNode);
     
     // Adding | Removing
     int add_recursive(BinaryNode* data);
     void clear_recursive(BinaryNode* subRoot);
+    void removeLast();
     
     // Finding
     BinaryNode* find(int searchData);

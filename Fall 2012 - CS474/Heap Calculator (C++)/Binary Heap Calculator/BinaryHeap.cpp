@@ -13,6 +13,12 @@ BinaryHeap::BinaryHeap(){
     last = NULL;
 }
 
+BinaryHeap::BinaryHeap(const BinaryHeap& otherHeap){
+    root = NULL;
+    last = NULL;
+    copy(&otherHeap);
+}
+
 BinaryHeap::~BinaryHeap(){
     clear();
 }
@@ -68,24 +74,27 @@ int BinaryHeap::remove(int data){
     foundNode = find(data);
     
     if(foundNode){
-        if(foundNode == last){
-            delete last;
-            last = NULL;
-            setLast();
-        }
-        else{
+        if(foundNode != last){
             foundNode->data = last->data;
             last->data = data;
-            //heapify(foundNode);
-            setLast();
-        
-            delete last;
         }
-        last = NULL;
+        removeLast();
+        if(!(foundNode == root && foundNode == last)){
+            heapify(foundNode);
+        }
+        else{
+            root = NULL;
+        }
         return 1;
     }
     
     return 0;
+}
+
+void BinaryHeap::removeLast(){
+    delete last;
+    last = NULL;
+    setLast();
 }
 
 void BinaryHeap::display(){
@@ -134,12 +143,12 @@ void BinaryHeap::clear_recursive(BinaryNode *subRoot){
     }
 }
 
-void BinaryHeap::copy(const BinaryHeap& otherHeap){
-    BinaryNode* currentNode = otherHeap.root;
+void BinaryHeap::copy(const BinaryHeap* otherHeap){
+    BinaryNode* currentNode = otherHeap->root;
     
     clear();
     
-    if(!otherHeap.isEmpty()){
+    if(!otherHeap->isEmpty()){
         copy_recursive(currentNode);
     }
 }
@@ -163,9 +172,9 @@ bool BinaryHeap::isEmpty() const{
     return false;
 }
 
-BinaryHeap& BinaryHeap::operator=(const BinaryHeap &otherHeap){
+BinaryHeap& BinaryHeap::operator=(const BinaryHeap& otherHeap){
     if(&otherHeap != this){
-        copy(otherHeap);
+        copy(&otherHeap);
     }
     
     return *this;
