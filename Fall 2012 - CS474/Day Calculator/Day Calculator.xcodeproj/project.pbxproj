@@ -1,0 +1,462 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		365AA20D166582AB00680748 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 365AA20C166582AB00680748 /* UIKit.framework */; };
+		365AA20F166582AB00680748 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 365AA20E166582AB00680748 /* Foundation.framework */; };
+		365AA211166582AB00680748 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 365AA210166582AB00680748 /* CoreGraphics.framework */; };
+		365AA217166582AB00680748 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 365AA215166582AB00680748 /* InfoPlist.strings */; };
+		365AA219166582AB00680748 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 365AA218166582AB00680748 /* main.m */; };
+		365AA21D166582AB00680748 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 365AA21C166582AB00680748 /* AppDelegate.m */; };
+		365AA21F166582AB00680748 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 365AA21E166582AB00680748 /* Default.png */; };
+		365AA221166582AB00680748 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 365AA220166582AB00680748 /* Default@2x.png */; };
+		365AA223166582AB00680748 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 365AA222166582AB00680748 /* Default-568h@2x.png */; };
+		365AA226166582AB00680748 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 365AA224166582AB00680748 /* MainStoryboard.storyboard */; };
+		365AA229166582AB00680748 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 365AA228166582AB00680748 /* ViewController.m */; };
+		365AA231166582AB00680748 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 365AA230166582AB00680748 /* SenTestingKit.framework */; };
+		365AA232166582AB00680748 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 365AA20C166582AB00680748 /* UIKit.framework */; };
+		365AA233166582AB00680748 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 365AA20E166582AB00680748 /* Foundation.framework */; };
+		365AA23B166582AB00680748 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 365AA239166582AB00680748 /* InfoPlist.strings */; };
+		365AA23E166582AB00680748 /* Day_CalculatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 365AA23D166582AB00680748 /* Day_CalculatorTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		365AA234166582AB00680748 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 365AA1FF166582AB00680748 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 365AA207166582AB00680748;
+			remoteInfo = "Day Calculator";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		365AA208166582AB00680748 /* Day Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Day Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		365AA20C166582AB00680748 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		365AA20E166582AB00680748 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		365AA210166582AB00680748 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		365AA214166582AB00680748 /* Day Calculator-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Day Calculator-Info.plist"; sourceTree = "<group>"; };
+		365AA216166582AB00680748 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		365AA218166582AB00680748 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		365AA21A166582AB00680748 /* Day Calculator-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Day Calculator-Prefix.pch"; sourceTree = "<group>"; };
+		365AA21B166582AB00680748 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		365AA21C166582AB00680748 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		365AA21E166582AB00680748 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		365AA220166582AB00680748 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		365AA222166582AB00680748 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		365AA225166582AB00680748 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		365AA227166582AB00680748 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		365AA228166582AB00680748 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		365AA22F166582AB00680748 /* Day CalculatorTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Day CalculatorTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		365AA230166582AB00680748 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		365AA238166582AB00680748 /* Day CalculatorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Day CalculatorTests-Info.plist"; sourceTree = "<group>"; };
+		365AA23A166582AB00680748 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		365AA23C166582AB00680748 /* Day_CalculatorTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Day_CalculatorTests.h; sourceTree = "<group>"; };
+		365AA23D166582AB00680748 /* Day_CalculatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Day_CalculatorTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		365AA205166582AB00680748 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				365AA20D166582AB00680748 /* UIKit.framework in Frameworks */,
+				365AA20F166582AB00680748 /* Foundation.framework in Frameworks */,
+				365AA211166582AB00680748 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		365AA22B166582AB00680748 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				365AA231166582AB00680748 /* SenTestingKit.framework in Frameworks */,
+				365AA232166582AB00680748 /* UIKit.framework in Frameworks */,
+				365AA233166582AB00680748 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		365AA1FD166582AB00680748 = {
+			isa = PBXGroup;
+			children = (
+				365AA212166582AB00680748 /* Day Calculator */,
+				365AA236166582AB00680748 /* Day CalculatorTests */,
+				365AA20B166582AB00680748 /* Frameworks */,
+				365AA209166582AB00680748 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		365AA209166582AB00680748 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				365AA208166582AB00680748 /* Day Calculator.app */,
+				365AA22F166582AB00680748 /* Day CalculatorTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		365AA20B166582AB00680748 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				365AA20C166582AB00680748 /* UIKit.framework */,
+				365AA20E166582AB00680748 /* Foundation.framework */,
+				365AA210166582AB00680748 /* CoreGraphics.framework */,
+				365AA230166582AB00680748 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		365AA212166582AB00680748 /* Day Calculator */ = {
+			isa = PBXGroup;
+			children = (
+				365AA21B166582AB00680748 /* AppDelegate.h */,
+				365AA21C166582AB00680748 /* AppDelegate.m */,
+				365AA224166582AB00680748 /* MainStoryboard.storyboard */,
+				365AA227166582AB00680748 /* ViewController.h */,
+				365AA228166582AB00680748 /* ViewController.m */,
+				365AA213166582AB00680748 /* Supporting Files */,
+			);
+			path = "Day Calculator";
+			sourceTree = "<group>";
+		};
+		365AA213166582AB00680748 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				365AA214166582AB00680748 /* Day Calculator-Info.plist */,
+				365AA215166582AB00680748 /* InfoPlist.strings */,
+				365AA218166582AB00680748 /* main.m */,
+				365AA21A166582AB00680748 /* Day Calculator-Prefix.pch */,
+				365AA21E166582AB00680748 /* Default.png */,
+				365AA220166582AB00680748 /* Default@2x.png */,
+				365AA222166582AB00680748 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		365AA236166582AB00680748 /* Day CalculatorTests */ = {
+			isa = PBXGroup;
+			children = (
+				365AA23C166582AB00680748 /* Day_CalculatorTests.h */,
+				365AA23D166582AB00680748 /* Day_CalculatorTests.m */,
+				365AA237166582AB00680748 /* Supporting Files */,
+			);
+			path = "Day CalculatorTests";
+			sourceTree = "<group>";
+		};
+		365AA237166582AB00680748 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				365AA238166582AB00680748 /* Day CalculatorTests-Info.plist */,
+				365AA239166582AB00680748 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		365AA207166582AB00680748 /* Day Calculator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 365AA241166582AB00680748 /* Build configuration list for PBXNativeTarget "Day Calculator" */;
+			buildPhases = (
+				365AA204166582AB00680748 /* Sources */,
+				365AA205166582AB00680748 /* Frameworks */,
+				365AA206166582AB00680748 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Day Calculator";
+			productName = "Day Calculator";
+			productReference = 365AA208166582AB00680748 /* Day Calculator.app */;
+			productType = "com.apple.product-type.application";
+		};
+		365AA22E166582AB00680748 /* Day CalculatorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 365AA244166582AB00680748 /* Build configuration list for PBXNativeTarget "Day CalculatorTests" */;
+			buildPhases = (
+				365AA22A166582AB00680748 /* Sources */,
+				365AA22B166582AB00680748 /* Frameworks */,
+				365AA22C166582AB00680748 /* Resources */,
+				365AA22D166582AB00680748 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				365AA235166582AB00680748 /* PBXTargetDependency */,
+			);
+			name = "Day CalculatorTests";
+			productName = "Day CalculatorTests";
+			productReference = 365AA22F166582AB00680748 /* Day CalculatorTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		365AA1FF166582AB00680748 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Andrew Long";
+			};
+			buildConfigurationList = 365AA202166582AB00680748 /* Build configuration list for PBXProject "Day Calculator" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 365AA1FD166582AB00680748;
+			productRefGroup = 365AA209166582AB00680748 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				365AA207166582AB00680748 /* Day Calculator */,
+				365AA22E166582AB00680748 /* Day CalculatorTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		365AA206166582AB00680748 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				365AA217166582AB00680748 /* InfoPlist.strings in Resources */,
+				365AA21F166582AB00680748 /* Default.png in Resources */,
+				365AA221166582AB00680748 /* Default@2x.png in Resources */,
+				365AA223166582AB00680748 /* Default-568h@2x.png in Resources */,
+				365AA226166582AB00680748 /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		365AA22C166582AB00680748 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				365AA23B166582AB00680748 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		365AA22D166582AB00680748 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		365AA204166582AB00680748 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				365AA219166582AB00680748 /* main.m in Sources */,
+				365AA21D166582AB00680748 /* AppDelegate.m in Sources */,
+				365AA229166582AB00680748 /* ViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		365AA22A166582AB00680748 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				365AA23E166582AB00680748 /* Day_CalculatorTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		365AA235166582AB00680748 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 365AA207166582AB00680748 /* Day Calculator */;
+			targetProxy = 365AA234166582AB00680748 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		365AA215166582AB00680748 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				365AA216166582AB00680748 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		365AA224166582AB00680748 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				365AA225166582AB00680748 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+		365AA239166582AB00680748 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				365AA23A166582AB00680748 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		365AA23F166582AB00680748 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		365AA240166582AB00680748 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		365AA242166582AB00680748 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Day Calculator/Day Calculator-Prefix.pch";
+				INFOPLIST_FILE = "Day Calculator/Day Calculator-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		365AA243166582AB00680748 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Day Calculator/Day Calculator-Prefix.pch";
+				INFOPLIST_FILE = "Day Calculator/Day Calculator-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		365AA245166582AB00680748 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Day Calculator.app/Day Calculator";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Day Calculator/Day Calculator-Prefix.pch";
+				INFOPLIST_FILE = "Day CalculatorTests/Day CalculatorTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		365AA246166582AB00680748 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Day Calculator.app/Day Calculator";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Day Calculator/Day Calculator-Prefix.pch";
+				INFOPLIST_FILE = "Day CalculatorTests/Day CalculatorTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		365AA202166582AB00680748 /* Build configuration list for PBXProject "Day Calculator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				365AA23F166582AB00680748 /* Debug */,
+				365AA240166582AB00680748 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		365AA241166582AB00680748 /* Build configuration list for PBXNativeTarget "Day Calculator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				365AA242166582AB00680748 /* Debug */,
+				365AA243166582AB00680748 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		365AA244166582AB00680748 /* Build configuration list for PBXNativeTarget "Day CalculatorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				365AA245166582AB00680748 /* Debug */,
+				365AA246166582AB00680748 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 365AA1FF166582AB00680748 /* Project object */;
+}
