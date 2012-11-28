@@ -58,6 +58,7 @@
 		365AA23A166582AB00680748 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		365AA23C166582AB00680748 /* Day_CalculatorTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Day_CalculatorTests.h; sourceTree = "<group>"; };
 		365AA23D166582AB00680748 /* Day_CalculatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Day_CalculatorTests.m; sourceTree = "<group>"; };
+		365AA2471665898500680748 /* calen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calen.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +121,7 @@
 				365AA21B166582AB00680748 /* AppDelegate.h */,
 				365AA21C166582AB00680748 /* AppDelegate.m */,
 				365AA224166582AB00680748 /* MainStoryboard.storyboard */,
+				365AA2471665898500680748 /* calen.png */,
 				365AA227166582AB00680748 /* ViewController.h */,
 				365AA228166582AB00680748 /* ViewController.m */,
 				365AA213166582AB00680748 /* Supporting Files */,
