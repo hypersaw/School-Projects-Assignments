@@ -23,6 +23,8 @@
 		365AA233166582AB00680748 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 365AA20E166582AB00680748 /* Foundation.framework */; };
 		365AA23B166582AB00680748 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 365AA239166582AB00680748 /* InfoPlist.strings */; };
 		365AA23E166582AB00680748 /* Day_CalculatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 365AA23D166582AB00680748 /* Day_CalculatorTests.m */; };
+		365AA24A16658E5300680748 /* JulianDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 365AA24916658E5300680748 /* JulianDate.m */; };
+		365AA24C1665D72600680748 /* calen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 365AA24B1665D72600680748 /* calen.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,9 @@
 		365AA23C166582AB00680748 /* Day_CalculatorTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Day_CalculatorTests.h; sourceTree = "<group>"; };
 		365AA23D166582AB00680748 /* Day_CalculatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Day_CalculatorTests.m; sourceTree = "<group>"; };
 		365AA2471665898500680748 /* calen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calen.png; sourceTree = "<group>"; };
+		365AA24816658E5300680748 /* JulianDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JulianDate.h; sourceTree = "<group>"; };
+		365AA24916658E5300680748 /* JulianDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JulianDate.m; sourceTree = "<group>"; };
+		365AA24B1665D72600680748 /* calen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = calen.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,7 +126,10 @@
 				365AA21B166582AB00680748 /* AppDelegate.h */,
 				365AA21C166582AB00680748 /* AppDelegate.m */,
 				365AA224166582AB00680748 /* MainStoryboard.storyboard */,
+				365AA24816658E5300680748 /* JulianDate.h */,
+				365AA24916658E5300680748 /* JulianDate.m */,
 				365AA2471665898500680748 /* calen.png */,
+				365AA24B1665D72600680748 /* calen.jpg */,
 				365AA227166582AB00680748 /* ViewController.h */,
 				365AA228166582AB00680748 /* ViewController.m */,
 				365AA213166582AB00680748 /* Supporting Files */,
@@ -238,6 +246,7 @@
 				365AA221166582AB00680748 /* Default@2x.png in Resources */,
 				365AA223166582AB00680748 /* Default-568h@2x.png in Resources */,
 				365AA226166582AB00680748 /* MainStoryboard.storyboard in Resources */,
+				365AA24C1665D72600680748 /* calen.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +284,7 @@
 				365AA219166582AB00680748 /* main.m in Sources */,
 				365AA21D166582AB00680748 /* AppDelegate.m in Sources */,
 				365AA229166582AB00680748 /* ViewController.m in Sources */,
+				365AA24A16658E5300680748 /* JulianDate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

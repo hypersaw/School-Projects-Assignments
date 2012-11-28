@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UITextFieldDelegate>{
+    IBOutlet UITextField* startDate;
+    IBOutlet UITextField* endDate;
+    IBOutlet UILabel* output;
+    IBOutlet UILabel* daysLabel;
+    IBOutlet UIButton* calculate;
+}
+
+-(IBAction)calculateDays:(id)sender;
+-(IBAction)dismissField:(id)sender;
 
 @end

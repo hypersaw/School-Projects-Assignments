@@ -12,7 +12,22 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Day Calculator" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RNH-Nm-jBM" userLabel="Label - Day Calculator">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7WW-dc-dnP">
+                                <subviews>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.30000000000000016" contentMode="scaleToFill" image="calen.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="x3U-Uk-gcf">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="111" id="ChP-RH-cq2"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="x3U-Uk-gcf" firstAttribute="leading" secondItem="7WW-dc-dnP" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="291-kd-0iT"/>
+                                    <constraint firstAttribute="trailing" secondItem="x3U-Uk-gcf" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Xzi-GI-yuZ"/>
+                                    <constraint firstItem="x3U-Uk-gcf" firstAttribute="top" secondItem="7WW-dc-dnP" secondAttribute="top" constant="20" symbolic="YES" type="default" id="wVM-Tz-GHw"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Day Calculator" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RNH-Nm-jBM" userLabel="Label - Day Calculator (Static)">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="27" id="m2b-89-biq"/>
                                     <constraint firstAttribute="width" constant="180" id="tu4-kc-mGV"/>
@@ -21,7 +36,7 @@
                                 <color key="textColor" white="0.48790322580645162" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Start Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZzK-I0-XDo" userLabel="Label - Start Date">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Start Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZzK-I0-XDo" userLabel="Label - Start Date (Static)">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="27" id="hCa-lQ-TyF"/>
                                 </constraints>
@@ -29,24 +44,26 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tmq-U3-G1s" userLabel="Label - Output">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tmq-U3-G1s" userLabel="Label - Output">
                                 <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="130" id="5h4-ty-fFm"/>
-                                    <constraint firstAttribute="width" constant="156" id="CSS-V8-KLE"/>
+                                    <constraint firstAttribute="width" constant="156" id="Sd4-1a-5jX"/>
+                                    <constraint firstAttribute="height" constant="78" id="jfy-pe-83H"/>
                                 </constraints>
-                                <attributedString key="attributedText">
-                                    <fragment content="28">
-                                        <attributes>
-                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <font key="NSFont" size="82" name="Helvetica-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="69"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="End Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iIm-xW-GXa" userLabel="Label - End Date">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jtz-4Y-upJ" userLabel="Label - Days (Static)">
+                                <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="78" id="1J9-2c-iez"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="26"/>
+                                <color key="textColor" white="0.4859432025547446" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="End Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iIm-xW-GXa" userLabel="Label - End Date (Static)">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="27" id="irz-1E-w9T"/>
                                 </constraints>
@@ -57,12 +74,18 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="MM/DD/YYYY" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bQf-xf-HPC" userLabel="Field - Start Date">
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" keyboardAppearance="alert" returnKeyType="done"/>
+                                <connections>
+                                    <action selector="dismissField:" destination="2" eventType="editingDidEndOnExit" id="j2h-03-Ffa"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="MM/DD/YYYY" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FS2-wE-zdo" userLabel="Field - End Date">
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" keyboardAppearance="alert" returnKeyType="done"/>
+                                <connections>
+                                    <action selector="dismissField:" destination="2" eventType="editingDidEndOnExit" id="gQZ-vR-MzP"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8S1-ui-dxc" userLabel="Button - Calculate">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -73,46 +96,55 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="calculateDays:" destination="2" eventType="touchDown" id="xoR-hQ-6V9"/>
+                                </connections>
                             </button>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.30000000000000016" contentMode="scaleToFill" image="calen.png" translatesAutoresizingMaskIntoConstraints="NO" id="x3U-Uk-gcf">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="152" id="pTV-ah-3OT"/>
-                                    <constraint firstAttribute="width" constant="166" id="wc7-kE-0rp"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="tmq-U3-G1s" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" type="default" id="38F-OV-4AD"/>
                             <constraint firstItem="8S1-ui-dxc" firstAttribute="trailing" secondItem="iIm-xW-GXa" secondAttribute="trailing" type="default" id="3Dq-hu-j1v"/>
                             <constraint firstItem="iIm-xW-GXa" firstAttribute="leading" secondItem="FS2-wE-zdo" secondAttribute="leading" type="default" id="5m3-Gy-Ygb"/>
-                            <constraint firstAttribute="bottom" secondItem="8S1-ui-dxc" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="6dC-ot-QJj"/>
+                            <constraint firstItem="ZzK-I0-XDo" firstAttribute="top" secondItem="3" secondAttribute="top" constant="88" id="7DT-6i-Njz"/>
                             <constraint firstItem="ZzK-I0-XDo" firstAttribute="trailing" secondItem="FS2-wE-zdo" secondAttribute="trailing" type="default" id="Fh9-dc-3kq"/>
+                            <constraint firstItem="iIm-xW-GXa" firstAttribute="top" secondItem="3" secondAttribute="top" constant="151" id="God-RE-aFz"/>
                             <constraint firstItem="iIm-xW-GXa" firstAttribute="trailing" secondItem="FS2-wE-zdo" secondAttribute="trailing" type="default" id="Igz-RJ-SWw"/>
-                            <constraint firstAttribute="bottom" secondItem="iIm-xW-GXa" secondAttribute="bottom" constant="85" id="RKu-t9-Or5"/>
+                            <constraint firstAttribute="bottom" secondItem="7WW-dc-dnP" secondAttribute="bottom" constant="13" id="KOr-nX-YgT"/>
+                            <constraint firstItem="Jtz-4Y-upJ" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" type="default" id="Pi9-pf-jux"/>
                             <constraint firstItem="FS2-wE-zdo" firstAttribute="top" secondItem="ZzK-I0-XDo" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="RTP-I7-tJG"/>
+                            <constraint firstAttribute="bottom" secondItem="Jtz-4Y-upJ" secondAttribute="bottom" constant="18" id="Sfz-dt-538"/>
                             <constraint firstItem="ZzK-I0-XDo" firstAttribute="leading" secondItem="bQf-xf-HPC" secondAttribute="leading" type="default" id="T5p-7X-cDd"/>
-                            <constraint firstItem="x3U-Uk-gcf" firstAttribute="top" secondItem="3" secondAttribute="top" constant="72" id="XtD-At-pJE"/>
-                            <constraint firstItem="tmq-U3-G1s" firstAttribute="centerX" secondItem="x3U-Uk-gcf" secondAttribute="centerX" type="default" id="aNy-oT-Idn"/>
-                            <constraint firstAttribute="bottom" secondItem="bQf-xf-HPC" secondAttribute="bottom" constant="172" id="dEF-UW-jVg"/>
-                            <constraint firstAttribute="bottom" secondItem="FS2-wE-zdo" secondAttribute="bottom" constant="110" id="eeC-On-d71"/>
+                            <constraint firstItem="8S1-ui-dxc" firstAttribute="top" secondItem="3" secondAttribute="top" constant="185" id="Y54-aI-8ei"/>
+                            <constraint firstItem="Jtz-4Y-upJ" firstAttribute="centerX" secondItem="7WW-dc-dnP" secondAttribute="centerX" type="default" id="a6a-KB-lra"/>
+                            <constraint firstItem="bQf-xf-HPC" firstAttribute="top" secondItem="3" secondAttribute="top" constant="61" id="aMz-uq-6Y5"/>
                             <constraint firstItem="RNH-Nm-jBM" firstAttribute="trailing" secondItem="bQf-xf-HPC" secondAttribute="trailing" type="default" id="fJj-XF-pFO"/>
                             <constraint firstItem="RNH-Nm-jBM" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="fev-dp-YKi"/>
+                            <constraint firstAttribute="bottom" secondItem="tmq-U3-G1s" secondAttribute="bottom" constant="79" id="hyh-Ag-t8V"/>
+                            <constraint firstItem="tmq-U3-G1s" firstAttribute="leading" secondItem="Jtz-4Y-upJ" secondAttribute="leading" type="default" id="jda-6M-DAT"/>
                             <constraint firstItem="ZzK-I0-XDo" firstAttribute="leading" secondItem="FS2-wE-zdo" secondAttribute="leading" type="default" id="ju1-pK-Lgm"/>
-                            <constraint firstItem="tmq-U3-G1s" firstAttribute="centerY" secondItem="x3U-Uk-gcf" secondAttribute="centerY" type="default" id="nT7-Ja-fRd"/>
+                            <constraint firstItem="tmq-U3-G1s" firstAttribute="centerX" secondItem="8S1-ui-dxc" secondAttribute="centerX" type="default" id="kk5-Qs-1gF"/>
+                            <constraint firstItem="7WW-dc-dnP" firstAttribute="top" secondItem="3" secondAttribute="top" constant="255" id="oTp-dC-Tg4"/>
+                            <constraint firstItem="7WW-dc-dnP" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="57" id="qds-rf-pfV"/>
+                            <constraint firstItem="tmq-U3-G1s" firstAttribute="trailing" secondItem="Jtz-4Y-upJ" secondAttribute="trailing" type="default" id="s3d-A8-KVO"/>
                             <constraint firstItem="8S1-ui-dxc" firstAttribute="leading" secondItem="iIm-xW-GXa" secondAttribute="leading" type="default" id="vh0-DM-Hmv"/>
-                            <constraint firstItem="tmq-U3-G1s" firstAttribute="centerX" secondItem="RNH-Nm-jBM" secondAttribute="centerX" type="default" id="whr-W0-6iJ"/>
                             <constraint firstItem="bQf-xf-HPC" firstAttribute="leading" secondItem="RNH-Nm-jBM" secondAttribute="leading" type="default" id="yth-hN-uzD"/>
                             <constraint firstItem="ZzK-I0-XDo" firstAttribute="trailing" secondItem="bQf-xf-HPC" secondAttribute="trailing" type="default" id="ztq-QM-nU9"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="calculate" destination="8S1-ui-dxc" id="sLM-ub-mnX"/>
+                        <outlet property="daysLabel" destination="Jtz-4Y-upJ" id="fSA-7N-T9V"/>
+                        <outlet property="endDate" destination="FS2-wE-zdo" id="7Rm-w9-0an"/>
+                        <outlet property="output" destination="tmq-U3-G1s" id="r5N-Gi-fTq"/>
+                        <outlet property="startDate" destination="bQf-xf-HPC" id="fWJ-u2-ePU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
     <resources>
-        <image name="calen.png" width="517" height="475"/>
+        <image name="calen.jpg" width="517" height="396"/>
     </resources>
     <classes>
         <class className="NSLayoutConstraint" superclassName="NSObject">
@@ -120,6 +152,15 @@
         </class>
         <class className="ViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="calculateDays:"/>
+                <relationship kind="action" name="dismissField:"/>
+                <relationship kind="outlet" name="calculate" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="daysLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="endDate" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="output" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="startDate" candidateClass="UITextField"/>
+            </relationships>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
