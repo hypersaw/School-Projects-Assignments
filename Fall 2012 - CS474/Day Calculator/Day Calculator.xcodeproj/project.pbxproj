@@ -60,7 +60,6 @@
 		365AA23A166582AB00680748 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		365AA23C166582AB00680748 /* Day_CalculatorTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Day_CalculatorTests.h; sourceTree = "<group>"; };
 		365AA23D166582AB00680748 /* Day_CalculatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Day_CalculatorTests.m; sourceTree = "<group>"; };
-		365AA2471665898500680748 /* calen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calen.png; sourceTree = "<group>"; };
 		365AA24816658E5300680748 /* JulianDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JulianDate.h; sourceTree = "<group>"; };
 		365AA24916658E5300680748 /* JulianDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JulianDate.m; sourceTree = "<group>"; };
 		365AA24B1665D72600680748 /* calen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = calen.jpg; sourceTree = "<group>"; };
@@ -128,7 +127,6 @@
 				365AA224166582AB00680748 /* MainStoryboard.storyboard */,
 				365AA24816658E5300680748 /* JulianDate.h */,
 				365AA24916658E5300680748 /* JulianDate.m */,
-				365AA2471665898500680748 /* calen.png */,
 				365AA24B1665D72600680748 /* calen.jpg */,
 				365AA227166582AB00680748 /* ViewController.h */,
 				365AA228166582AB00680748 /* ViewController.m */,

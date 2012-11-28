@@ -17,7 +17,15 @@
 
 -(IBAction)dismissField:(id)sender{
     [self resignFirstResponder];
-    NSLog(@"First responder should resign\n");
+    BOOL validInput = [self hasValidInput:[sender text]];
+    
+    if(validInput){
+        [self calculateDays:self];
+    }
+    else{
+        [sender setText:@""];
+        [sender setPlaceholder:@"Invalid Format"];
+    }
 }
 
 -(IBAction)calculateDays:(id)sender{
@@ -78,6 +86,52 @@
             [output setText:@"?"];
         }
     }
+}
+
+-(BOOL)hasValidInput:(NSString *)inputField{
+    // If our string doesn't have exactly 10 characters
+    // (2 + '/' + 2 + '/' + 4) then invalid.
+    if([inputField length] != 10){
+        return NO;
+    }
+    
+    NSArray* dateArray = [inputField componentsSeparatedByString:@"/"];
+    
+    // If our array does not have 3 elements then
+    // there were 10 characters but wrong format
+    // Ex. (3 + '/' + 6)
+    if([dateArray count] != 3){
+        return NO;
+    }
+    
+    NSInteger m, d, y;
+    m = [[dateArray objectAtIndex:0] integerValue];
+    d = [[dateArray objectAtIndex:1] integerValue];
+    y = [[dateArray objectAtIndex:2] integerValue];
+    
+    // 
+    // Is month within range
+    if(!((m > 0) && (m < 13))){
+        return NO;
+    }
+    // Is day within range
+    if(!((d > 0) && (d < 32))){
+        return NO;
+    }
+    // Is day within range for 30 day months
+    if((m == 4 || m == 6 || m == 9 || m == 11) && (d > 30)){
+        return NO;
+    }
+    // Is day within range for normal Feb
+    if((m == 2) && (d > 28) && (y % 4 != 0)){
+        return NO;
+    }
+    // Is day within range for leap Feb
+    if((m == 2) && (d > 29) && (y % 4 == 0)){
+        return NO;
+    }
+    
+    return YES;
 }
 
 - (void)viewDidLoad

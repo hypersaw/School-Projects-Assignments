@@ -36,9 +36,49 @@
                                 <color key="textColor" white="0.48790322580645162" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y5e-bw-yqh" userLabel="Label - Start Date Warning">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="27" id="BR7-zX-em8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="MM/DD/YYYY" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bQf-xf-HPC" userLabel="Field - Start Date">
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done"/>
+                                <connections>
+                                    <action selector="dismissField:" destination="2" eventType="editingDidEndOnExit" id="j2h-03-Ffa"/>
+                                </connections>
+                            </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Start Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZzK-I0-XDo" userLabel="Label - Start Date (Static)">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="27" id="hCa-lQ-TyF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jpw-a3-DId" userLabel="Label - End Date Warning">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="27" id="hHv-5G-e3s"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="MM/DD/YYYY" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FS2-wE-zdo" userLabel="Field - End Date">
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done"/>
+                                <connections>
+                                    <action selector="dismissField:" destination="2" eventType="editingDidEndOnExit" id="gQZ-vR-MzP"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="End Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iIm-xW-GXa" userLabel="Label - End Date (Static)">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="27" id="irz-1E-w9T"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -63,80 +103,47 @@
                                 <color key="textColor" white="0.4859432025547446" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="End Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iIm-xW-GXa" userLabel="Label - End Date (Static)">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="27" id="irz-1E-w9T"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="MM/DD/YYYY" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bQf-xf-HPC" userLabel="Field - Start Date">
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" keyboardAppearance="alert" returnKeyType="done"/>
-                                <connections>
-                                    <action selector="dismissField:" destination="2" eventType="editingDidEndOnExit" id="j2h-03-Ffa"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="MM/DD/YYYY" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FS2-wE-zdo" userLabel="Field - End Date">
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" keyboardAppearance="alert" returnKeyType="done"/>
-                                <connections>
-                                    <action selector="dismissField:" destination="2" eventType="editingDidEndOnExit" id="gQZ-vR-MzP"/>
-                                </connections>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8S1-ui-dxc" userLabel="Button - Calculate">
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Calculate">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="calculateDays:" destination="2" eventType="touchDown" id="xoR-hQ-6V9"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="8S1-ui-dxc" firstAttribute="trailing" secondItem="iIm-xW-GXa" secondAttribute="trailing" type="default" id="3Dq-hu-j1v"/>
+                            <constraint firstItem="jpw-a3-DId" firstAttribute="leading" secondItem="ZzK-I0-XDo" secondAttribute="leading" type="default" id="1Q9-Eq-mFK"/>
+                            <constraint firstItem="jpw-a3-DId" firstAttribute="trailing" secondItem="ZzK-I0-XDo" secondAttribute="trailing" type="default" id="5DN-J8-Bgn"/>
                             <constraint firstItem="iIm-xW-GXa" firstAttribute="leading" secondItem="FS2-wE-zdo" secondAttribute="leading" type="default" id="5m3-Gy-Ygb"/>
-                            <constraint firstItem="ZzK-I0-XDo" firstAttribute="top" secondItem="3" secondAttribute="top" constant="88" id="7DT-6i-Njz"/>
-                            <constraint firstItem="ZzK-I0-XDo" firstAttribute="trailing" secondItem="FS2-wE-zdo" secondAttribute="trailing" type="default" id="Fh9-dc-3kq"/>
-                            <constraint firstItem="iIm-xW-GXa" firstAttribute="top" secondItem="3" secondAttribute="top" constant="151" id="God-RE-aFz"/>
+                            <constraint firstItem="y5e-bw-yqh" firstAttribute="leading" secondItem="bQf-xf-HPC" secondAttribute="leading" type="default" id="9Qv-8g-aeP"/>
+                            <constraint firstItem="y5e-bw-yqh" firstAttribute="top" secondItem="3" secondAttribute="top" constant="57" id="FwW-fe-ybF"/>
                             <constraint firstItem="iIm-xW-GXa" firstAttribute="trailing" secondItem="FS2-wE-zdo" secondAttribute="trailing" type="default" id="Igz-RJ-SWw"/>
                             <constraint firstAttribute="bottom" secondItem="7WW-dc-dnP" secondAttribute="bottom" constant="13" id="KOr-nX-YgT"/>
-                            <constraint firstItem="Jtz-4Y-upJ" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" type="default" id="Pi9-pf-jux"/>
-                            <constraint firstItem="FS2-wE-zdo" firstAttribute="top" secondItem="ZzK-I0-XDo" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="RTP-I7-tJG"/>
+                            <constraint firstItem="FS2-wE-zdo" firstAttribute="top" secondItem="3" secondAttribute="top" constant="173" id="MkS-7r-1MI"/>
+                            <constraint firstItem="y5e-bw-yqh" firstAttribute="leading" secondItem="RNH-Nm-jBM" secondAttribute="leading" type="default" id="NDc-Et-F6g"/>
+                            <constraint firstItem="tmq-U3-G1s" firstAttribute="centerX" secondItem="7WW-dc-dnP" secondAttribute="centerX" type="default" id="QGf-VC-QYb"/>
                             <constraint firstAttribute="bottom" secondItem="Jtz-4Y-upJ" secondAttribute="bottom" constant="18" id="Sfz-dt-538"/>
                             <constraint firstItem="ZzK-I0-XDo" firstAttribute="leading" secondItem="bQf-xf-HPC" secondAttribute="leading" type="default" id="T5p-7X-cDd"/>
-                            <constraint firstItem="8S1-ui-dxc" firstAttribute="top" secondItem="3" secondAttribute="top" constant="185" id="Y54-aI-8ei"/>
-                            <constraint firstItem="Jtz-4Y-upJ" firstAttribute="centerX" secondItem="7WW-dc-dnP" secondAttribute="centerX" type="default" id="a6a-KB-lra"/>
-                            <constraint firstItem="bQf-xf-HPC" firstAttribute="top" secondItem="3" secondAttribute="top" constant="61" id="aMz-uq-6Y5"/>
-                            <constraint firstItem="RNH-Nm-jBM" firstAttribute="trailing" secondItem="bQf-xf-HPC" secondAttribute="trailing" type="default" id="fJj-XF-pFO"/>
+                            <constraint firstItem="bQf-xf-HPC" firstAttribute="top" secondItem="3" secondAttribute="top" constant="83" id="XoB-q1-cT6"/>
+                            <constraint firstItem="7WW-dc-dnP" firstAttribute="top" secondItem="3" secondAttribute="top" constant="255" id="cKT-Jo-qVA"/>
+                            <constraint firstItem="jpw-a3-DId" firstAttribute="leading" secondItem="FS2-wE-zdo" secondAttribute="leading" type="default" id="cjk-Wi-f0Q"/>
+                            <constraint firstItem="jpw-a3-DId" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" type="default" id="dzY-W5-CbZ"/>
+                            <constraint firstItem="iIm-xW-GXa" firstAttribute="top" secondItem="3" secondAttribute="top" constant="201" id="e9C-VL-obY"/>
                             <constraint firstItem="RNH-Nm-jBM" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="fev-dp-YKi"/>
+                            <constraint firstItem="ZzK-I0-XDo" firstAttribute="top" secondItem="3" secondAttribute="top" constant="110" id="fve-tM-hlo"/>
                             <constraint firstAttribute="bottom" secondItem="tmq-U3-G1s" secondAttribute="bottom" constant="79" id="hyh-Ag-t8V"/>
                             <constraint firstItem="tmq-U3-G1s" firstAttribute="leading" secondItem="Jtz-4Y-upJ" secondAttribute="leading" type="default" id="jda-6M-DAT"/>
-                            <constraint firstItem="ZzK-I0-XDo" firstAttribute="leading" secondItem="FS2-wE-zdo" secondAttribute="leading" type="default" id="ju1-pK-Lgm"/>
-                            <constraint firstItem="tmq-U3-G1s" firstAttribute="centerX" secondItem="8S1-ui-dxc" secondAttribute="centerX" type="default" id="kk5-Qs-1gF"/>
-                            <constraint firstItem="7WW-dc-dnP" firstAttribute="top" secondItem="3" secondAttribute="top" constant="255" id="oTp-dC-Tg4"/>
+                            <constraint firstItem="y5e-bw-yqh" firstAttribute="trailing" secondItem="RNH-Nm-jBM" secondAttribute="trailing" type="default" id="lYP-kh-zym"/>
+                            <constraint firstItem="y5e-bw-yqh" firstAttribute="trailing" secondItem="bQf-xf-HPC" secondAttribute="trailing" type="default" id="nTN-Ae-MUs"/>
+                            <constraint firstItem="iIm-xW-GXa" firstAttribute="centerX" secondItem="tmq-U3-G1s" secondAttribute="centerX" type="default" id="nY2-ze-yHG"/>
+                            <constraint firstItem="jpw-a3-DId" firstAttribute="trailing" secondItem="FS2-wE-zdo" secondAttribute="trailing" type="default" id="pvd-eF-u4i"/>
                             <constraint firstItem="7WW-dc-dnP" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="57" id="qds-rf-pfV"/>
                             <constraint firstItem="tmq-U3-G1s" firstAttribute="trailing" secondItem="Jtz-4Y-upJ" secondAttribute="trailing" type="default" id="s3d-A8-KVO"/>
-                            <constraint firstItem="8S1-ui-dxc" firstAttribute="leading" secondItem="iIm-xW-GXa" secondAttribute="leading" type="default" id="vh0-DM-Hmv"/>
-                            <constraint firstItem="bQf-xf-HPC" firstAttribute="leading" secondItem="RNH-Nm-jBM" secondAttribute="leading" type="default" id="yth-hN-uzD"/>
+                            <constraint firstItem="jpw-a3-DId" firstAttribute="top" secondItem="3" secondAttribute="top" constant="148" id="tIq-zt-ODN"/>
                             <constraint firstItem="ZzK-I0-XDo" firstAttribute="trailing" secondItem="bQf-xf-HPC" secondAttribute="trailing" type="default" id="ztq-QM-nU9"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="calculate" destination="8S1-ui-dxc" id="sLM-ub-mnX"/>
                         <outlet property="daysLabel" destination="Jtz-4Y-upJ" id="fSA-7N-T9V"/>
                         <outlet property="endDate" destination="FS2-wE-zdo" id="7Rm-w9-0an"/>
+                        <outlet property="endDateWarning" destination="jpw-a3-DId" id="Oji-N3-Ky5"/>
                         <outlet property="output" destination="tmq-U3-G1s" id="r5N-Gi-fTq"/>
                         <outlet property="startDate" destination="bQf-xf-HPC" id="fWJ-u2-ePU"/>
+                        <outlet property="startDateWarning" destination="y5e-bw-yqh" id="1df-Lo-NbS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
@@ -158,8 +165,10 @@
                 <relationship kind="outlet" name="calculate" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="daysLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="endDate" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="endDateWarning" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="output" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="startDate" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="startDateWarning" candidateClass="UILabel"/>
             </relationships>
         </class>
     </classes>

@@ -64,11 +64,18 @@
 }
 
 -(BOOL)comesBefore:(JulianDate *)otherDate{
-    if([self year] <= [otherDate year]){
-        if([self month] <= [otherDate month]){
-            if([self day] <= [otherDate day])
+    if([self year] == [otherDate year]){
+        if([self month] == [otherDate month]){
+            if([self day] <= [otherDate day]){
                 return YES;
+            }
         }
+        else if([self month] < [otherDate month]){
+            return YES;
+        }
+    }
+    else if([self year] < [otherDate year]){
+        return YES;
     }
     
     return NO;

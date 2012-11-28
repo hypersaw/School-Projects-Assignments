@@ -6,7 +6,6 @@
 //  Copyright (c) 2012 Andrew Long. All rights reserved.
 //
 
-#import "JulianDate.h"
 #import "AppDelegate.h"
 
 @implementation AppDelegate

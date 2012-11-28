@@ -13,10 +13,13 @@
     IBOutlet UITextField* endDate;
     IBOutlet UILabel* output;
     IBOutlet UILabel* daysLabel;
+    IBOutlet UILabel* startDateWarning;
+    IBOutlet UILabel* endDateWarning;
     IBOutlet UIButton* calculate;
 }
 
 -(IBAction)calculateDays:(id)sender;
 -(IBAction)dismissField:(id)sender;
+-(BOOL)hasValidInput:(NSString*)inputField;
 
 @end
