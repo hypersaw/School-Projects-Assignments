@@ -49,6 +49,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done"/>
                                 <connections>
+                                    <action selector="dismissField:" destination="2" eventType="editingDidEnd" id="Ybi-11-5c5"/>
                                     <action selector="dismissField:" destination="2" eventType="editingDidEndOnExit" id="j2h-03-Ffa"/>
                                 </connections>
                             </textField>
@@ -73,6 +74,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done"/>
                                 <connections>
+                                    <action selector="dismissField:" destination="2" eventType="editingDidEnd" id="R99-j7-rfm"/>
                                     <action selector="dismissField:" destination="2" eventType="editingDidEndOnExit" id="gQZ-vR-MzP"/>
                                 </connections>
                             </textField>

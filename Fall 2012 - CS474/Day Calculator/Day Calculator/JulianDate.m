@@ -11,6 +11,8 @@
 @implementation JulianDate
 @synthesize month, day, year;
 
+// Initialize with a 10 character string with the following
+// format (MM/DD/YYYY). Must be '/' delimited.
 -(id)initWithString:(NSString*)input{
     NSArray* dateArray = [input componentsSeparatedByString:@"/"];
     
@@ -21,12 +23,14 @@
     return self;
 }
 
+// Returns a string with the date in MM/DD/YYYY format
 -(NSString*)display{
     NSString* outputString = [[NSString alloc] initWithFormat:@"%d/%d/%d",month,day,year];
     
     return outputString;
 }
 
+// Returns how many days are in the date's month
 -(NSInteger)daysInMonth{
     NSInteger days = 0;
     
@@ -48,12 +52,14 @@
     return days;
 }
 
+// Returns how many days are left in the date's month
 -(NSInteger)daysLeftInMonth{
     NSInteger days = [self daysInMonth];
 
     return (days - day);
 }
 
+// Returns how many days are in the date's year
 -(NSInteger)daysInYear{
     NSInteger days = 365;
     if([self year] % 4 == 0){
@@ -63,6 +69,8 @@
     return days;
 }
 
+// Returns whether or not the passed in date comes after
+// the current (self) date.
 -(BOOL)comesBefore:(JulianDate *)otherDate{
     if([self year] == [otherDate year]){
         if([self month] == [otherDate month]){

@@ -15,6 +15,10 @@
 
 @implementation ViewController
 
+// Called when startDate and endDate text fields
+// are done editing ('Did End On Exit' and 'Editing Did End').
+// Checks the input and validates it. If everything checks out it continues
+// by calling calculateDays
 -(IBAction)dismissField:(id)sender{
     [self resignFirstResponder];
     BOOL validInput = [self hasValidInput:[sender text]];
@@ -28,6 +32,8 @@
     }
 }
 
+// Pulls the data from the text fields and calculates
+// days between startDate and endDate
 -(IBAction)calculateDays:(id)sender{
     if([[startDate text] length] == 0 || [[endDate text] length] == 0){
         NSLog(@"Fields are empty!");
@@ -88,6 +94,9 @@
     }
 }
 
+// Checks whether a passed in string follows the correct
+// format for a JulianDate. If format is correct, validates that
+// the numbers are valid (month stays within 1-12, days are correct, etc.)
 -(BOOL)hasValidInput:(NSString *)inputField{
     // If our string doesn't have exactly 10 characters
     // (2 + '/' + 2 + '/' + 4) then invalid.
