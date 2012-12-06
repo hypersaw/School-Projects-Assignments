@@ -9,19 +9,24 @@
 #ifndef COLLECTION
 #define COLLECTION
 
+#include <iostream>
+
 class Collection {
 public:
-    virtual void add() = 0;
-    virtual void remove() = 0;
-    virtual const Collection& operator=(const Collection& rightSide) = 0;
-    virtual const Collection& operator[](unsigned int index) = 0;
+    
+    
+    virtual void add(int addItem, unsigned int atIndex) = 0;
+    virtual void remove(int removeItem);
+    virtual Collection* copy() = 0;
+    //virtual const Collection& operator=(const Collection& rightSide) = 0;
+    virtual const int operator[](unsigned int index) = 0;
 
     unsigned int size();
 
     //void contains();
     //void do_();
     
-private:
+protected:
     unsigned int size_;
 };
 

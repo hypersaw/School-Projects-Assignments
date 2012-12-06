@@ -7,3 +7,11 @@
 //
 
 #include "Array.h"
+
+void Array::add(int addItem, unsigned int atIndex){
+    std::cerr << "Cannot add item to Array\n";
+}
+
+void Array::remove(int removeItem){
+    std::cerr << "Cannot remove item from Array\n";
+}

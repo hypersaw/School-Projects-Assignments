@@ -13,6 +13,14 @@
 
 class Array : public Collection {
     
+public:
+    Array();
+    ~Array();
+    
+    void add(int addItem, unsigned int atIndex);
+    
+    void remove(int removeItem);
+    
 };
 
 #endif

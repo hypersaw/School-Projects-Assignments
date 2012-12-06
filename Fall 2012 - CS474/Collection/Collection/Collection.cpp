@@ -7,3 +7,7 @@
 //
 
 #include "Collection.h"
+
+unsigned int Collection::size(){
+    return size_;
+}
