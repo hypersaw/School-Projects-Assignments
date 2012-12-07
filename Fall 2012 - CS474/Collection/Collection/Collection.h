@@ -13,21 +13,25 @@
 
 class Collection {
 public:
-    
+    Collection();
+    virtual ~Collection();
     
     virtual void add(int addItem, unsigned int atIndex) = 0;
-    virtual void remove(int removeItem);
+    virtual void remove(int removeItem) = 0;
     virtual Collection* copy() = 0;
-    //virtual const Collection& operator=(const Collection& rightSide) = 0;
+    virtual const Collection& operator=(const Collection& rightSide) = 0;
     virtual const int operator[](unsigned int index) = 0;
 
     unsigned int size();
 
-    //void contains();
-    //void do_();
+    bool contains(int item);
+    void iterate(void (*function)(int));
     
 protected:
     unsigned int size_;
+    int* collectionArray;
 };
+
+inline Collection::~Collection(){}
 
 #endif

@@ -27,13 +27,17 @@ public:
     
     Collection* copy();
     
-    //const Collection& operator=(const Collection& rightSide);
+    const Collection& operator=(const Collection& rightSide);
     const int operator[](unsigned int index);
 
 private:
     unsigned int firstIndex;
     unsigned int lastIndex;
-    int* collectionArray;
+    
+    unsigned int offset;
+    
+    void shiftRight(unsigned int fromIndex);
+    void shiftLeft(unsigned int fromIndex);
     
     void growIfNecessary();
 };

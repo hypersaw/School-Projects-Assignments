@@ -8,6 +8,10 @@
 
 #include "Array.h"
 
+Array::Array() : Collection(){
+    
+}
+
 void Array::add(int addItem, unsigned int atIndex){
     std::cerr << "Cannot add item to Array\n";
 }

@@ -9,8 +9,11 @@
 #include <iostream>
 #include "OrderedCollection.h"
 
+int x = 0;
+
 void testOrderedCollection();
 void testArray();
+void addAll(int i);
 
 int main(int argc, const char * argv[])
 {
@@ -45,9 +48,41 @@ void testOrderedCollection(){
         std::cout << "(*temp2)[" << i << "] = " << (*temp2)[i] << "\n";
     }
     
+    Collection** a;
+    a = new Collection*[5];
+    
+    a[0] = new OrderedCollection();
+    a[0]->add(100,0);
+    a[0]->add(50,0);
+    a[0]->add(75,1);
+    a[1] = a[0]->copy();
+    
+    for(int i = 0; i <= a[1]->size() - 1; ++i){
+        std::cout << "(*a[1])[" << i << "] " << (*a[1])[i] << "\n";
+    }
+    
+    x = 0;
+    
+    temp2->iterate(&addAll);
+    
+    std::cout << "x = " << x << ".\n";
+    
+    std::cout << "Does *temp contain 300? " << (temp->contains(300) ? "True" : "False") << "! \n";
+    std::cout << "Does *temp2 contain 300? " << (temp2->contains(300) ? "True" : "False") << "! \n";
+    
+    delete temp;
+    delete temp2;
+    delete a[1];
+    delete a[0];
+    delete [] a;
+    
     std::cout << "End OrderedCollection tests...\n";
 }
 
 void testArray(){
     
+}
+
+void addAll(int i){
+    x += i;
 }
