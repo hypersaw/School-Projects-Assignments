@@ -16,18 +16,21 @@ unsigned int Collection::size(){
     return size_;
 }
 
+// Iterates through a Collection and
+// compares to a passed in value
 bool Collection::contains(int item){
     for(int i = 0; i < size_; ++i){
-        if(collectionArray[i] == item){
+        if((*this)[i] == item){
             return true;
         }
     }
-    
     return false;
 }
 
+// Iterates through a Collection and passes
+// each value to a function
 void Collection::iterate(void (*function)(int)){
     for(int i = 0; i < size_; ++i){
-        function(collectionArray[i]);
+        function((*this)[i]);
     }
 }

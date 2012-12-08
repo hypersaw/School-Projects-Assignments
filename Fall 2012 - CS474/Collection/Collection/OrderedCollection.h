@@ -22,15 +22,16 @@ public:
     ~OrderedCollection();
     
     void add(int addItem, unsigned int atIndex);
-    
     void remove(int atIndex);
     
     Collection* copy();
     
-    const Collection& operator=(const Collection& rightSide);
-    const int operator[](unsigned int index);
+    const Collection& operator=(Collection& rightSide);
+    int& operator[](const unsigned int index);
 
 private:
+    int* collectionArray;
+    
     unsigned int firstIndex;
     unsigned int lastIndex;
     
@@ -38,6 +39,9 @@ private:
     
     void shiftRight(unsigned int fromIndex);
     void shiftLeft(unsigned int fromIndex);
+    
+    void removeShiftRight(unsigned int toIndex);
+    void removeShiftLeft(unsigned int toIndex);
     
     void growIfNecessary();
 };

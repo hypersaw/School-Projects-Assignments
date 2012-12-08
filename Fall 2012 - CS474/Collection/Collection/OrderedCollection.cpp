@@ -62,8 +62,22 @@ void OrderedCollection::add(int addItem, unsigned int atIndex){
     }
 }
 
-void OrderedCollection::remove(int atIndex){
-    ++atIndex;
+void OrderedCollection::remove(int removeItem){
+    if(contains(removeItem)){
+        for(int i = firstIndex; i <= lastIndex; ++i){
+            if(collectionArray[i] == removeItem){
+                if(((firstIndex + i) * 2 <= (firstIndex + lastIndex))
+                   && (firstIndex != i)){
+                    // The item we are removing is in the first half of our set
+                    // (but not the first) So we will shift those numbers to the right
+                    removeShiftRight(i);
+                }
+                else{
+                    removeShiftLeft(i);
+                }
+            }
+        }
+    }
 }
 
 Collection* OrderedCollection::copy(){
@@ -75,7 +89,7 @@ Collection* OrderedCollection::copy(){
     return copiedOrderedCollection;
 }
 
-const Collection& OrderedCollection::operator=(const Collection &rightSide){
+const Collection& OrderedCollection::operator=(Collection& rightSide){
     if(this == &rightSide){
         return *this;
     }
@@ -86,10 +100,11 @@ const Collection& OrderedCollection::operator=(const Collection &rightSide){
     return *newCollection;
 }
 
-const int OrderedCollection::operator[](unsigned int index){
+int& OrderedCollection::operator[](const unsigned int index){
     return collectionArray[firstIndex+index];
 }
 
+// Expands the collection from the passed in value and up
 void OrderedCollection::shiftRight(unsigned int fromIndex){
     for(int i = lastIndex; i >= (firstIndex + fromIndex); --i){
         collectionArray[i + 1] = collectionArray[i];
@@ -97,6 +112,7 @@ void OrderedCollection::shiftRight(unsigned int fromIndex){
     ++lastIndex;
 }
 
+// Expands the collection from the passed in value and down
 void OrderedCollection::shiftLeft(unsigned int fromIndex){
     for(int i = firstIndex; i <= (firstIndex + fromIndex); ++i){
         collectionArray[i - 1] = collectionArray[i];
@@ -104,6 +120,23 @@ void OrderedCollection::shiftLeft(unsigned int fromIndex){
     --firstIndex;
 }
 
+// Contracts the collection from the passed in value and up
+void OrderedCollection::removeShiftRight(unsigned int toIndex){
+    for(int i = toIndex; i > firstIndex; --i){
+        collectionArray[i] = collectionArray[i-1];
+    }
+    --firstIndex;
+}
+
+// Contracts the collection from the passed in value and down
+void OrderedCollection::removeShiftLeft(unsigned int toIndex){
+    for(int i = toIndex; i < lastIndex; ++i){
+        collectionArray[i] = collectionArray[i+1];
+    }
+    --lastIndex;
+}
+
+// If the size of the array has reached it's limit then grow
 void OrderedCollection::growIfNecessary(){
     // If necessary...
     if(size_ == (offset * 4)){
