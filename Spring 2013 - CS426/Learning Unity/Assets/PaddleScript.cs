@@ -4,9 +4,11 @@ using System.Collections;
 public class PaddleScript : MonoBehaviour {
 	
 	public int speed = 10;
-	public float topBound = (float)4.45;
-	public float botBound = (float)-4.45;
+	public float topBound = (float)4.40;
+	public float botBound = (float)-4.40;
 	public float xPos = 0;
+	public int player = 0;
+	
 	// Use this for initialization
 	void Start () {
 	
@@ -25,6 +27,5 @@ public class PaddleScript : MonoBehaviour {
 			translation *= Time.deltaTime;
 			transform.Translate(0, 0, translation);
 		}
-		
 	}
 }
