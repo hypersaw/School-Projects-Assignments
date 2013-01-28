@@ -3,10 +3,12 @@ using System.Collections;
 
 public class LightTriggerScript : MonoBehaviour {
 	public bool lightEnabled = false;
+	public Color lightColor = Color.green;
 	
 	// Use this for initialization
 	void Start () {
 		light.enabled = lightEnabled;
+		light.color = lightColor;
 	}
 	
 	// Update is called once per frame
