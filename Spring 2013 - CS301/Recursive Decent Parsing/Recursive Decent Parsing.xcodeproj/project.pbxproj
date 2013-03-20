@@ -1,0 +1,217 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		49689AF116F9749E00D56AF5 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49689AF016F9749E00D56AF5 /* main.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		49689AEB16F9749E00D56AF5 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		49689AED16F9749E00D56AF5 /* Recursive Decent Parsing */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Recursive Decent Parsing"; sourceTree = BUILT_PRODUCTS_DIR; };
+		49689AF016F9749E00D56AF5 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		49689AEA16F9749E00D56AF5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		49689AE416F9749E00D56AF5 = {
+			isa = PBXGroup;
+			children = (
+				49689AEF16F9749E00D56AF5 /* Recursive Decent Parsing */,
+				49689AEE16F9749E00D56AF5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		49689AEE16F9749E00D56AF5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				49689AED16F9749E00D56AF5 /* Recursive Decent Parsing */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		49689AEF16F9749E00D56AF5 /* Recursive Decent Parsing */ = {
+			isa = PBXGroup;
+			children = (
+				49689AF016F9749E00D56AF5 /* main.cpp */,
+			);
+			path = "Recursive Decent Parsing";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		49689AEC16F9749E00D56AF5 /* Recursive Decent Parsing */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 49689AF616F9749E00D56AF5 /* Build configuration list for PBXNativeTarget "Recursive Decent Parsing" */;
+			buildPhases = (
+				49689AE916F9749E00D56AF5 /* Sources */,
+				49689AEA16F9749E00D56AF5 /* Frameworks */,
+				49689AEB16F9749E00D56AF5 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Recursive Decent Parsing";
+			productName = "Recursive Decent Parsing";
+			productReference = 49689AED16F9749E00D56AF5 /* Recursive Decent Parsing */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		49689AE516F9749E00D56AF5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Andrew Long";
+			};
+			buildConfigurationList = 49689AE816F9749E00D56AF5 /* Build configuration list for PBXProject "Recursive Decent Parsing" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 49689AE416F9749E00D56AF5;
+			productRefGroup = 49689AEE16F9749E00D56AF5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				49689AEC16F9749E00D56AF5 /* Recursive Decent Parsing */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		49689AE916F9749E00D56AF5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49689AF116F9749E00D56AF5 /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		49689AF416F9749E00D56AF5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		49689AF516F9749E00D56AF5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		49689AF716F9749E00D56AF5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		49689AF816F9749E00D56AF5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		49689AE816F9749E00D56AF5 /* Build configuration list for PBXProject "Recursive Decent Parsing" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49689AF416F9749E00D56AF5 /* Debug */,
+				49689AF516F9749E00D56AF5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		49689AF616F9749E00D56AF5 /* Build configuration list for PBXNativeTarget "Recursive Decent Parsing" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49689AF716F9749E00D56AF5 /* Debug */,
+				49689AF816F9749E00D56AF5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 49689AE516F9749E00D56AF5 /* Project object */;
+}
