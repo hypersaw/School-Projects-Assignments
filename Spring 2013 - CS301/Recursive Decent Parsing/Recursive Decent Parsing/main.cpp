@@ -7,12 +7,13 @@
 //
 
 #include <iostream>
+#include "REParser.h"
 
 int main(int argc, const char * argv[])
 {
-
-    // insert code here...
-    std::cout << "Hello, World!\n";
+    REParser parser;
+    parser.parse("this is a string");
+    
     return 0;
 }
 

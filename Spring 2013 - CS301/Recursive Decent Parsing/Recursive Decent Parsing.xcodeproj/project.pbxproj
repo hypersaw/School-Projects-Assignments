@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		49689AF116F9749E00D56AF5 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49689AF016F9749E00D56AF5 /* main.cpp */; };
+		49689AFB16F976C800D56AF5 /* REParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49689AF916F976C800D56AF5 /* REParser.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,8 @@
 /* Begin PBXFileReference section */
 		49689AED16F9749E00D56AF5 /* Recursive Decent Parsing */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Recursive Decent Parsing"; sourceTree = BUILT_PRODUCTS_DIR; };
 		49689AF016F9749E00D56AF5 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		49689AF916F976C800D56AF5 /* REParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = REParser.cpp; sourceTree = "<group>"; };
+		49689AFA16F976C800D56AF5 /* REParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REParser.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				49689AF016F9749E00D56AF5 /* main.cpp */,
+				49689AF916F976C800D56AF5 /* REParser.cpp */,
+				49689AFA16F976C800D56AF5 /* REParser.h */,
 			);
 			path = "Recursive Decent Parsing";
 			sourceTree = "<group>";
@@ -114,6 +119,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				49689AF116F9749E00D56AF5 /* main.cpp in Sources */,
+				49689AFB16F976C800D56AF5 /* REParser.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
