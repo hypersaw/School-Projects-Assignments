@@ -9,6 +9,7 @@
 //  GRAMMAR:
 //  1.  <RE> 		-> 	<CONCAT><RE’>
 //  2.  <RE’>		->	U<CONCAT>
+//  2.  <RE’>		->	/e/
 //  3.  <CONCAT> 	->	<KLEEN><CONCAT’>
 //  4.  <CONCAT’>	->	<KLEEN><CONCAT’>
 //  5.  <CONCAT’>	->	/e/
@@ -39,16 +40,16 @@ private:
     std::string userInput;
     
     char nextCharacter();
-    void match(char symbol);
+    bool match(char symbol);
     void consume();
     
     void RE();
     void _RE();
     void CONCAT();
-    void _CONCAT();
-    void KLEENE();
-    void _KLEENE();
-    void ELEMENT();
+    bool _CONCAT();
+    bool KLEENE();
+    bool _KLEENE();
+    bool ELEMENT();
 protected:
     
 };

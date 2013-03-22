@@ -9,6 +9,7 @@
 //  GRAMMAR:
 //  1.  <RE> 		-> 	<CONCAT><RE’>
 //  2.  <RE’>		->	U<CONCAT>
+//  2.  <RE’>		->	/e/
 //  3.  <CONCAT> 	->	<KLEEN><CONCAT’>
 //  4.  <CONCAT’>	->	<KLEEN><CONCAT’>
 //  5.  <CONCAT’>	->	/e/
@@ -44,9 +45,10 @@ void REParser::parse(std::string input){
         std::cout << std::endl;
         
     }
-    catch(...){
+    catch(const char* error){
         std::cout << std::endl;
         std::cout << "** Sorry, input is NOT a valid RE..." << std::endl;
+        std::cout << error << std::endl;
         std::cout << std::endl;
     }
 }
@@ -55,8 +57,14 @@ char REParser::nextCharacter(){
     return userInput[index];
 }
 
-void REParser::match(char symbol){
+bool REParser::match(char symbol){
+    if(nextCharacter() == symbol){
+        std::cout << "Matched " << symbol << std::endl;
+        consume();
+        return true;
+    }
     
+    return false;
 }
 
 void REParser::consume(){
@@ -64,30 +72,80 @@ void REParser::consume(){
 }
 
 void REParser::RE(){
-    
+    std::cout << "Called RE()" << std::endl;
+    CONCAT();
+    _RE();
 }
 
 void REParser::_RE(){
-    
+    std::cout << "Called _RE()" << std::endl;
+    if(match('|')){
+        CONCAT();
+    }
+    else{
+        // empty string
+    }
 }
 
 void REParser::CONCAT(){
-    
+    std::cout << "Called CONCAT()" << std::endl;
+    KLEENE();
+    _CONCAT();
 }
 
-void REParser::_CONCAT(){
+bool REParser::_CONCAT(){
+    std::cout << "Called _CONCAT()" << std::endl;
+    if(KLEENE()){
+        _CONCAT();
+    }
+    else{
+        return false;
+    }
     
+    return true;
 }
 
-void REParser::KLEENE(){
+bool REParser::KLEENE(){
+    std::cout << "Called KLEENE()" << std::endl;
+    if(ELEMENT()){
+        _KLEENE();
+        return true;
+    }
     
+    return false;
 }
 
-void REParser::_KLEENE(){
+bool REParser::_KLEENE(){
+    std::cout << "Called _KLEENE()" << std::endl;
+    if(match('*')){
+        _KLEENE();
+    }
+    else{
+        return false;
+    }
     
+    return true;
 }
 
-void REParser::ELEMENT(){
+bool REParser::ELEMENT(){
+    std::cout << "Called ELEMENT()" << std::endl;
+    if(match('a') || match('b') || match('c') || match('d')){
+        // cool
+    }
+    else if(match('(')){
+        RE();
+        if(match(')')){
+            // cool
+        }
+        else{
+            // not cool
+            throw "Missing Closing Parentheses.";
+        }
+    }
+    else{
+        return false;
+    }
     
+    return true;
 }
 

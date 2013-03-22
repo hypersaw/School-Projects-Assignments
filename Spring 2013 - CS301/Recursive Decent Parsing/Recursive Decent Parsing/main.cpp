@@ -30,9 +30,11 @@ int main(int argc, const char * argv[])
     REParser parser;
     std::string input;
     
-    std::cout << "** please enter a regular expression: ";
-    getline(std::cin,input);
-    parser.parse(input.c_str());
+    do{
+        std::cout << "** please enter a regular expression: ";
+        getline(std::cin,input);
+        parser.parse(input.c_str());
+    }while(input != "q");
     
     return 0;
 }
