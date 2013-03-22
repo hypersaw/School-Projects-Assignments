@@ -1,10 +1,23 @@
 Project 5 (Final) for CS340 (Software Design)
 
-KNOWN ISSUES:
-The player cannot manually set their board. This is by choice though, not an issue (well, the TA
-had an issue with it at least). Towards the end of the project I remembered I had been using a static board for testing
-and when it came down to it I pulled a Steve Jobs and said "you know what? The user doesn't need to arrange the board."
-An algorithm that places the pieces for me is just as arbitrary as my own personal opinion as to where the 
-piece(s) should go. Also saves time, both players are ready instantly! But I digress. Personal choice.
+SECTIONS:
+  I.  KNOWN ISSUES
+  II. HOW TO RUN
+
+I) KNOWN ISSUES:
+  1.  The player cannot manually set their board. This is by choice though, not an issue (well, the TA
+      had an issue with it at least). Towards the end of the project I remembered I had been using a static board for testing
+      and when it came down to it I pulled a Steve Jobs and said "you know what? The user doesn't need to arrange the board."
+      An algorithm that places the pieces for me is just as arbitrary as my own personal opinion as to where the 
+      piece(s) should go. Also saves time, both players are ready instantly! But I digress. Personal choice.
+  2.  If the client quits midgame then the server instance will crash. Apparently the TA didn't catch this.
+
+II) HOW TO RUN:
+  1.  Open up Battleship Qt project file. 
+  2.  Click run.
+  3.  Click run again to open a second instance.
+  4.  The program will display a prompt asking if you are hosting the match, select yes on one instance and no on the other
+  5.  The server instance will load and show you the game board, and the client instance will ask for a port number. Within the server instance's output window a port number will be given, type this into the client's prompt.
+  6.  Click 'Ready' on the client's side to begin the game. Server attacks first.
 
 Received a 95/100
