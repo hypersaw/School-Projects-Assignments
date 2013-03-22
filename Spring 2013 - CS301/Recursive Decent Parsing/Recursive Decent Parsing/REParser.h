@@ -43,9 +43,9 @@ private:
     bool match(char symbol);
     void consume();
     
-    void RE();
+    bool RE();
     void _RE();
-    void CONCAT();
+    bool CONCAT();
     bool _CONCAT();
     bool KLEENE();
     bool _KLEENE();

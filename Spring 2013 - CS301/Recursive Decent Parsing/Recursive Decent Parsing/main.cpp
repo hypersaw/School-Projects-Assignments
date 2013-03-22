@@ -31,10 +31,14 @@ int main(int argc, const char * argv[])
     std::string input;
     
     do{
-        std::cout << "** please enter a regular expression: ";
+        std::cout << "Enter a regular expression: ";
         getline(std::cin,input);
-        parser.parse(input.c_str());
-    }while(input != "q");
+        if(input != "quit"){
+            parser.parse(input);
+        }
+    }while(input != "quit");
+    
+    std::cout << "Exiting." << std::endl;
     
     return 0;
 }

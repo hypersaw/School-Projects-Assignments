@@ -37,18 +37,21 @@ void REParser::parse(std::string input){
     index = 0;
     
     try{
-        RE();
-        match('$');
+        if(RE()){
+            match('$');    
+        }
+        else{
+            throw "Empty string or invalid symbols";
+        }
         
         std::cout << std::endl;
-        std::cout << "** Yes, input is a valid RE!" << std::endl;
+        std::cout << "Input is a valid RE" << std::endl;
         std::cout << std::endl;
         
     }
     catch(const char* error){
         std::cout << std::endl;
-        std::cout << "** Sorry, input is NOT a valid RE..." << std::endl;
-        std::cout << error << std::endl;
+        std::cout << "Input is not a valid RE (" << error << ")" << std::endl;
         std::cout << std::endl;
     }
 }
@@ -59,7 +62,6 @@ char REParser::nextCharacter(){
 
 bool REParser::match(char symbol){
     if(nextCharacter() == symbol){
-        std::cout << "Matched " << symbol << std::endl;
         consume();
         return true;
     }
@@ -71,14 +73,16 @@ void REParser::consume(){
     ++index;
 }
 
-void REParser::RE(){
-    std::cout << "Called RE()" << std::endl;
-    CONCAT();
-    _RE();
+bool REParser::RE(){
+    if(CONCAT()){
+        _RE();
+        return true;
+    }
+    
+    return false;
 }
 
 void REParser::_RE(){
-    std::cout << "Called _RE()" << std::endl;
     if(match('|')){
         CONCAT();
     }
@@ -87,26 +91,25 @@ void REParser::_RE(){
     }
 }
 
-void REParser::CONCAT(){
-    std::cout << "Called CONCAT()" << std::endl;
-    KLEENE();
-    _CONCAT();
+bool REParser::CONCAT(){
+    if(KLEENE()){
+        _CONCAT();
+        return true;
+    }
+    
+    return false;
 }
 
 bool REParser::_CONCAT(){
-    std::cout << "Called _CONCAT()" << std::endl;
     if(KLEENE()){
         _CONCAT();
-    }
-    else{
-        return false;
+        return true;
     }
     
-    return true;
+    return false;
 }
 
 bool REParser::KLEENE(){
-    std::cout << "Called KLEENE()" << std::endl;
     if(ELEMENT()){
         _KLEENE();
         return true;
@@ -116,7 +119,6 @@ bool REParser::KLEENE(){
 }
 
 bool REParser::_KLEENE(){
-    std::cout << "Called _KLEENE()" << std::endl;
     if(match('*')){
         _KLEENE();
     }
@@ -128,24 +130,19 @@ bool REParser::_KLEENE(){
 }
 
 bool REParser::ELEMENT(){
-    std::cout << "Called ELEMENT()" << std::endl;
     if(match('a') || match('b') || match('c') || match('d')){
-        // cool
+        return true;
     }
     else if(match('(')){
         RE();
         if(match(')')){
-            // cool
+            return true;
         }
         else{
-            // not cool
-            throw "Missing Closing Parentheses.";
+            throw "Missing closing parentheses";
         }
     }
-    else{
-        return false;
-    }
     
-    return true;
+    return false;
 }
 
