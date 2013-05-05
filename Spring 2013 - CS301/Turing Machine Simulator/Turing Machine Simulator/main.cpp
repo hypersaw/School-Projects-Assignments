@@ -10,6 +10,8 @@
 #include <fstream>
 #include <string>
 
+#include "TuringMachine.h"
+
 std::string trimWhitespace(std::string originalString);
 
 int main(int argc, const char * argv[]){
@@ -29,13 +31,15 @@ int main(int argc, const char * argv[]){
             std::cout << ">> Incorrect file name, please enter another.\n";
         }
     }while(tmFile.fail());
-
+    tmFile.close();
+    
     std::cout << ">> Please enter an input string W: ";
     getline(std::cin,tmInputString);
     tmInputString = trimWhitespace(tmInputString);
     
     std::cout << "** Running...\n";
-    
+    TuringMachine machineP(tmFilenameP);
+
     
     return 0;
 }
