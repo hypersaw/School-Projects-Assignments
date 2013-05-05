@@ -28,6 +28,7 @@
 		366738671734D06D0009AD8A /* Turing Machine Simulator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Turing Machine Simulator"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3667386A1734D06D0009AD8A /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		3667386C1734D06D0009AD8A /* Turing_Machine_Simulator.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = Turing_Machine_Simulator.1; sourceTree = "<group>"; };
+		366738731735D7130009AD8A /* test.tm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.tm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +63,7 @@
 			children = (
 				3667386A1734D06D0009AD8A /* main.cpp */,
 				3667386C1734D06D0009AD8A /* Turing_Machine_Simulator.1 */,
+				366738731735D7130009AD8A /* test.tm */,
 			);
 			path = "Turing Machine Simulator";
 			sourceTree = "<group>";
