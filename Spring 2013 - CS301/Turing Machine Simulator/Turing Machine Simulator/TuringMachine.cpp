@@ -59,11 +59,6 @@ TuringMachine::TuringMachine(std::string filename){
         }
     }
     
-    std::cout << "Created a new Turing Machine with " << ruleCount << " rules." << std::endl;
-    for(int i = 0; i < ruleCount; ++i){
-        std::cout << machineRules[i] << std::endl;
-    }
-    
     parseFile();
 }
 
@@ -80,7 +75,6 @@ void TuringMachine::matchChar(int item){
         consumeChar();
     }
     else{
-        std::cout << "Item: " << (char)item << std::endl;
         throw "Match fault.";
     }
 }
@@ -90,9 +84,11 @@ int TuringMachine::nextChar(){
 }
 
 void TuringMachine::parseFile(){
+    std::cout << "** Validating TM file...\n";
     for(int currentLine = 0; currentLine < ruleCount; ++currentLine){
         parseRule(machineRules[currentLine]);
     }
+    std::cout << "** TM file validated...\n";
 }
 
 void TuringMachine::parseRule(std::string rule){
@@ -102,7 +98,9 @@ void TuringMachine::parseRule(std::string rule){
         LINE();
     }
     catch(const char* error){
-        std::cout << "ERROR: " << error << std::endl;
+        std::cout << "ERROR (" << currentLine << "," << currentLinePosition << "): " << error << std::endl;
+        std::cout << "** Exiting...\n";
+        exit(0);
     }
 }
 

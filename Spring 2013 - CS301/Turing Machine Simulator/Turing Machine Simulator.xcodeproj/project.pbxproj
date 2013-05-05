@@ -32,6 +32,8 @@
 		366738731735D7130009AD8A /* test.tm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.tm; sourceTree = "<group>"; };
 		366738741735F6CA0009AD8A /* TuringMachine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TuringMachine.cpp; sourceTree = "<group>"; };
 		366738751735F6CA0009AD8A /* TuringMachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TuringMachine.h; sourceTree = "<group>"; };
+		3667387717364EF30009AD8A /* test2.tm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test2.tm; sourceTree = "<group>"; };
+		3667387817364F670009AD8A /* test3.tm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test3.tm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,8 @@
 				366738751735F6CA0009AD8A /* TuringMachine.h */,
 				3667386C1734D06D0009AD8A /* Turing_Machine_Simulator.1 */,
 				366738731735D7130009AD8A /* test.tm */,
+				3667387717364EF30009AD8A /* test2.tm */,
+				3667387817364F670009AD8A /* test3.tm */,
 			);
 			path = "Turing Machine Simulator";
 			sourceTree = "<group>";
