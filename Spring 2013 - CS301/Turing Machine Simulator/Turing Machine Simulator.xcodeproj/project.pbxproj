@@ -10,6 +10,8 @@
 		3667386B1734D06D0009AD8A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3667386A1734D06D0009AD8A /* main.cpp */; };
 		3667386D1734D06D0009AD8A /* Turing_Machine_Simulator.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3667386C1734D06D0009AD8A /* Turing_Machine_Simulator.1 */; };
 		366738761735F6CA0009AD8A /* TuringMachine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 366738741735F6CA0009AD8A /* TuringMachine.cpp */; };
+		3667387B1736ABE20009AD8A /* State.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 366738791736ABE20009AD8A /* State.cpp */; };
+		3667387E173705A00009AD8A /* StateTransition.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3667387C173705A00009AD8A /* StateTransition.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,6 +36,10 @@
 		366738751735F6CA0009AD8A /* TuringMachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TuringMachine.h; sourceTree = "<group>"; };
 		3667387717364EF30009AD8A /* test2.tm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test2.tm; sourceTree = "<group>"; };
 		3667387817364F670009AD8A /* test3.tm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test3.tm; sourceTree = "<group>"; };
+		366738791736ABE20009AD8A /* State.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = State.cpp; sourceTree = "<group>"; };
+		3667387A1736ABE20009AD8A /* State.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = State.h; sourceTree = "<group>"; };
+		3667387C173705A00009AD8A /* StateTransition.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StateTransition.cpp; sourceTree = "<group>"; };
+		3667387D173705A00009AD8A /* StateTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StateTransition.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,11 +74,15 @@
 			children = (
 				3667386A1734D06D0009AD8A /* main.cpp */,
 				366738741735F6CA0009AD8A /* TuringMachine.cpp */,
+				366738791736ABE20009AD8A /* State.cpp */,
+				3667387A1736ABE20009AD8A /* State.h */,
 				366738751735F6CA0009AD8A /* TuringMachine.h */,
 				3667386C1734D06D0009AD8A /* Turing_Machine_Simulator.1 */,
 				366738731735D7130009AD8A /* test.tm */,
 				3667387717364EF30009AD8A /* test2.tm */,
 				3667387817364F670009AD8A /* test3.tm */,
+				3667387C173705A00009AD8A /* StateTransition.cpp */,
+				3667387D173705A00009AD8A /* StateTransition.h */,
 			);
 			path = "Turing Machine Simulator";
 			sourceTree = "<group>";
@@ -130,6 +140,8 @@
 			files = (
 				3667386B1734D06D0009AD8A /* main.cpp in Sources */,
 				366738761735F6CA0009AD8A /* TuringMachine.cpp in Sources */,
+				3667387B1736ABE20009AD8A /* State.cpp in Sources */,
+				3667387E173705A00009AD8A /* StateTransition.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

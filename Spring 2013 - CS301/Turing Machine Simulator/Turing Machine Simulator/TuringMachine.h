@@ -44,15 +44,21 @@
 #include <fstream>
 #include <iostream>
 #include <string>
+#include <vector>
+
+#include "State.h"
 
 class TuringMachine{
 public:
-    TuringMachine(std::string filename);
+    TuringMachine(std::string filename, std::string input);
     ~TuringMachine();
+    void runInput(std::string machineInput);
 protected:
     
 private:
     std::string machineRules[1000];
+    std::vector<State> machineStates;
+    State currentState;
     int ruleCount = 0;
     int currentLine = 0;
     int currentLinePosition = 0;
@@ -64,11 +70,15 @@ private:
     std::string trimWhitespace(std::string originalString);
     
     void consumeChar();
+    State getState(std::string stateName);
     void matchChar(int item);
     int nextChar();
+    bool stateExists(std::string stateName);
     
-    void parseFile();
-    void parseRule(std::string rule);
+    void buildMachine();
+    void buildRule(std::string newRule);
+    void validateMachine();
+    void validateRule(std::string newRule);
     void LINE();
     void VAR();
     void VAR_();

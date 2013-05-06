@@ -39,7 +39,7 @@
 
 #include "TuringMachine.h"
 
-TuringMachine::TuringMachine(std::string filename){
+TuringMachine::TuringMachine(std::string filename, std::string input){
     std::ifstream newMachine;
     newMachine.open(filename);
     
@@ -59,39 +59,139 @@ TuringMachine::TuringMachine(std::string filename){
         }
     }
     
-    parseFile();
+    buildMachine();
+    
+    // Add the accept and reject states
+    State acceptState("accept"), rejectState("reject");
+    machineStates.push_back(acceptState);
+    machineStates.push_back(rejectState);
 }
 
 TuringMachine::~TuringMachine(){
     
 }
 
-void TuringMachine::consumeChar(){
-    ++currentLinePosition;
+void TuringMachine::buildMachine(){
+    validateMachine();
+    for(int currentLine = 0; currentLine < ruleCount; ++currentLine){
+        buildRule(machineRules[currentLine]);
+    }
 }
 
-void TuringMachine::matchChar(int item){
-    if (item == nextChar()){
-        consumeChar();
+void TuringMachine::buildRule(std::string newRule){
+    std::string ruleSource, ruleDestination, ruleInputs;
+    char ruleOutput, ruleDirection;
+    
+    int linePos = 0;
+    // Get Rule Name
+    while(newRule[linePos] != ','){
+        ruleSource += newRule[linePos];
+        ++linePos;
+    }
+    newRule = newRule.substr(linePos+1);
+    
+    // Get Rule Destination
+    linePos = 0;
+    while(newRule[linePos] != ':'){
+        ruleDestination += newRule[linePos];
+        ++linePos;
+    }
+    newRule = newRule.substr(linePos+1);
+
+    // Get Rule Inputs
+    linePos = 0;
+    while(newRule[linePos] != '-'){
+        if(newRule[linePos] != ','){
+            ruleInputs += newRule[linePos];            
+        }
+        ++linePos;
+    }
+    newRule = newRule.substr(linePos+2);
+
+    // Get Rule Output and Direction
+    if(newRule.length() > 1){
+        ruleOutput = newRule[0];
+        ruleDirection = newRule[2];
+    }
+    // Or Get Rule Direction
+    else{
+        ruleOutput = NULL;
+        ruleDirection = newRule[0];
+    }
+    
+    // Create state and add transition rule
+    if(!stateExists(ruleSource)){
+        State newState(ruleSource);
+        machineStates.push_back(newState);
+    }
+    
+    getState(ruleSource).addTransition(ruleInputs, ruleOutput, ruleDirection, ruleDestination);
+    
+    // Set this as our current state if we haven't yet
+    if(currentState.getStateName() == "NULL"){
+        currentState = getState(ruleSource);
+    }
+}
+
+State TuringMachine::getState(std::string stateName){
+    State requestedState;
+    
+    for(int i = 0; i < machineStates.size(); ++i){
+        if(machineStates.at(i).getStateName() == stateName){
+            requestedState = machineStates.at(i);
+        }
+    }
+    
+    return requestedState;
+}
+
+void TuringMachine::runInput(std::string machineInput){
+    
+    int linePos = 0;
+    while(true){
+        for(int i = 0; i < machineInput.length();){
+            if(linePos == i){
+                std::cout << "(" << currentState.getStateName() << ") ";
+            }
+            
+            std::cout << machineInput[i] << " ";
+            ++i;
+        }
+        std::cout << "\n";
+        currentState = getState("accept");
+        break;
+        
+    }
+    
+    
+    if(currentState.getStateName() == "accept"){
+        std::cout << "** Accepted\n";
     }
     else{
-        throw "Match fault.";
+        std::cout << "** Rejected\n";
     }
 }
 
-int TuringMachine::nextChar(){
-    return machineRules[currentLine][currentLinePosition];
+bool TuringMachine::stateExists(std::string stateName){
+    bool exists = false;
+    for(int i = 0; i < machineStates.size(); ++i){
+        if(machineStates.at(i).getStateName() == stateName){
+            exists = true;
+        }
+    }
+    
+    return exists;
 }
 
-void TuringMachine::parseFile(){
+void TuringMachine::validateMachine(){
     std::cout << "** Validating TM file...\n";
     for(int currentLine = 0; currentLine < ruleCount; ++currentLine){
-        parseRule(machineRules[currentLine]);
+        validateRule(machineRules[currentLine]);
     }
     std::cout << "** TM file validated...\n";
 }
 
-void TuringMachine::parseRule(std::string rule){
+void TuringMachine::validateRule(std::string rule){
     currentLinePosition = 0;
     
     try{
@@ -114,6 +214,23 @@ std::string TuringMachine::trimWhitespace(std::string originalString){
     }
     
     return originalString;
+}
+
+void TuringMachine::consumeChar(){
+    ++currentLinePosition;
+}
+
+void TuringMachine::matchChar(int item){
+    if (item == nextChar()){
+        consumeChar();
+    }
+    else{
+        throw "Match fault.";
+    }
+}
+
+int TuringMachine::nextChar(){
+    return machineRules[currentLine][currentLinePosition];
 }
 
 void TuringMachine::LINE(){

@@ -38,8 +38,8 @@ int main(int argc, const char * argv[]){
     tmInputString = trimWhitespace(tmInputString);
     
     std::cout << "** Running...\n";
-    TuringMachine machineP(tmFilenameP);
-
+    TuringMachine machineP(tmFilenameP,tmInputString);
+    machineP.runInput(tmInputString);
     
     return 0;
 }
