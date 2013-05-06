@@ -70,7 +70,7 @@ private:
     std::string trimWhitespace(std::string originalString);
     
     void consumeChar();
-    State getState(std::string stateName);
+    State& getState(std::string stateName);
     void matchChar(int item);
     int nextChar();
     bool stateExists(std::string stateName);

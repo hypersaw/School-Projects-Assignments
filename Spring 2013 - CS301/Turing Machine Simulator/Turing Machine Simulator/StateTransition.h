@@ -18,7 +18,7 @@ public:
     ~StateTransition();
     
     std::string getInputs();
-    std::string getOutput();
+    char getOutput();
     std::string getDestination();
     char getDirection();
     
@@ -26,7 +26,7 @@ protected:
     
 private:
     std::string transitionInputs;
-    std::string transitionOutput;
+    char transitionOutput;
     std::string transitionDestination;
     char transitionDirection;
     

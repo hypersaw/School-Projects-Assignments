@@ -22,6 +22,13 @@ public:
     
     void addTransition(std::string inputs, char output, char direction, std::string destination);
     std::string getStateName();
+    
+    bool hasTransitionOnInput(char input);
+    bool hasOutputOnInput(char input);
+    
+    char directionOnInput(char input);
+    char outputOnInput(char input);
+    std::string stateOnInput(char input);
 protected:
     
 private:

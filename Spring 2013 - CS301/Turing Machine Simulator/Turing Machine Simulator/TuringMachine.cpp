@@ -68,7 +68,7 @@ TuringMachine::TuringMachine(std::string filename, std::string input){
 }
 
 TuringMachine::~TuringMachine(){
-    
+    machineStates.clear();
 }
 
 void TuringMachine::buildMachine(){
@@ -115,14 +115,15 @@ void TuringMachine::buildRule(std::string newRule){
     }
     // Or Get Rule Direction
     else{
-        ruleOutput = NULL;
+        ruleOutput = 0;
         ruleDirection = newRule[0];
     }
     
     // Create state and add transition rule
     if(!stateExists(ruleSource)){
-        State newState(ruleSource);
-        machineStates.push_back(newState);
+        State* newState;
+        newState = new State(ruleSource);
+        machineStates.push_back(*newState);
     }
     
     getState(ruleSource).addTransition(ruleInputs, ruleOutput, ruleDirection, ruleDestination);
@@ -133,24 +134,27 @@ void TuringMachine::buildRule(std::string newRule){
     }
 }
 
-State TuringMachine::getState(std::string stateName){
-    State requestedState;
+State& TuringMachine::getState(std::string stateName){
+    State* requestedState;
     
     for(int i = 0; i < machineStates.size(); ++i){
         if(machineStates.at(i).getStateName() == stateName){
-            requestedState = machineStates.at(i);
+            requestedState = &machineStates.at(i);
         }
     }
     
-    return requestedState;
+    return *requestedState;
 }
 
 void TuringMachine::runInput(std::string machineInput){
     
-    int linePos = 0;
-    while(true){
+    int headPosition = 0;
+    
+    // Continue while we are not in an accept or reject state
+    while(currentState.getStateName() != "reject" && currentState.getStateName() != "accept"){
+        // Display the tape
         for(int i = 0; i < machineInput.length();){
-            if(linePos == i){
+            if(headPosition == i){
                 std::cout << "(" << currentState.getStateName() << ") ";
             }
             
@@ -158,9 +162,37 @@ void TuringMachine::runInput(std::string machineInput){
             ++i;
         }
         std::cout << "\n";
-        currentState = getState("accept");
-        break;
         
+        // Analyze at tape head
+        char headPositionCharacter;
+        if(headPosition == -1 || headPosition == machineInput.length()){
+            headPositionCharacter = '_';
+        }
+        else{
+             headPositionCharacter = machineInput[headPosition];
+        }
+        
+        if(currentState.hasTransitionOnInput(headPositionCharacter)){
+            // Write output if available
+            if(currentState.hasOutputOnInput(headPositionCharacter)){
+                machineInput[headPosition] = currentState.outputOnInput(headPositionCharacter);
+            }
+            
+            // Move head
+            char moveHead = currentState.directionOnInput(headPositionCharacter);
+            if(moveHead == 'L'){
+                --headPosition;
+            }
+            else{
+                ++headPosition;
+            }
+            
+            // Set new state
+            currentState = getState(currentState.stateOnInput(headPositionCharacter));
+        }
+        else{
+            currentState = getState("reject");
+        }
     }
     
     
