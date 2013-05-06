@@ -21,7 +21,6 @@ State::~State(){
 }
 
 void State::addTransition(std::string inputs, char output, char direction, std::string destination){
-    std::cout << "State " << stateName << " transitions to " << destination << " on \"" << inputs << "\" with output \"" << output << "\" and direction " << direction << "\n";
     StateTransition* newTransition;
     newTransition = new StateTransition(inputs,output,direction,destination);
     stateTransitions.push_back(*newTransition);

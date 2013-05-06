@@ -153,6 +153,14 @@ void TuringMachine::runInput(std::string machineInput){
     // Continue while we are not in an accept or reject state
     while(currentState.getStateName() != "reject" && currentState.getStateName() != "accept"){
         // Display the tape
+        if(machineInput[0] == '_'){
+            machineInput = machineInput.substr(1);
+            --headPosition;
+        }
+        if(headPosition == -1){
+            machineInput = "_"+machineInput;
+            headPosition = 0;
+        }
         for(int i = 0; i < machineInput.length();){
             if(headPosition == i){
                 std::cout << "(" << currentState.getStateName() << ") ";
@@ -160,6 +168,12 @@ void TuringMachine::runInput(std::string machineInput){
             
             std::cout << machineInput[i] << " ";
             ++i;
+        }
+        if(headPosition == machineInput.length()){
+            std::cout << "(" << currentState.getStateName() << ")";
+        }
+        if(headPosition == (machineInput.length() + 1)){
+            std::cout << "_ (" << currentState.getStateName() << ")";
         }
         std::cout << "\n";
         
@@ -197,6 +211,17 @@ void TuringMachine::runInput(std::string machineInput){
     
     
     if(currentState.getStateName() == "accept"){
+        for(int i = 0; i < machineInput.length();){
+            if(headPosition == i){
+                std::cout << "(" << currentState.getStateName() << ") ";
+            }
+            
+            std::cout << machineInput[i] << " ";
+            ++i;
+        }
+        if(headPosition == (machineInput.length() + 1)){
+            std::cout << "_ (" << currentState.getStateName() << ")\n";
+        }
         std::cout << "** Accepted\n";
     }
     else{
