@@ -1,0 +1,12 @@
+Author: Andrew Long
+Program: Turing Machine Simulator
+Class: CS301
+
+HOW TO BUILD:
+	1. Type 'make'
+	2. Enter './along' to run
+	3. Enter 'make clean' to clean up
+
+HOW TO RUN:
+	1. Enter the FULL FILE PATH for your Turing Machine. It will ask you to enter it in again if it is invalid.
+	2. Enter a string to run as input.

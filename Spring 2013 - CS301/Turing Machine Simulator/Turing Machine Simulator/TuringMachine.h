@@ -59,13 +59,13 @@ private:
     std::string machineRules[1000];
     std::vector<State> machineStates;
     State currentState;
-    int ruleCount = 0;
-    int currentLine = 0;
-    int currentLinePosition = 0;
-    std::string lowercaseSet = "abcdefghijklmnopqrstuvwxyz";
-    std::string uppercaseSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    std::string alphabetSet = lowercaseSet + uppercaseSet;
-    std::string numberSet = "0123456789";
+    int ruleCount;
+    int currentLine;
+    int currentLinePosition;
+    std::string lowercaseSet;
+    std::string uppercaseSet;
+    std::string alphabetSet;
+    std::string numberSet;
     
     std::string trimWhitespace(std::string originalString);
     

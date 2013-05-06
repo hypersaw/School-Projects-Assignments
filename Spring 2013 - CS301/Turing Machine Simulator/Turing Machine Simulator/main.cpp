@@ -1,10 +1,9 @@
 //
-//  main.cpp
-//  Turing Machine Simulator
+// Turing Machine Simulator
 //
-//  Created by Andrew Long on 5/4/13.
-//  Copyright (c) 2013 Andrew Long. All rights reserved.
-//
+// Andrew Long
+// U. of Illinois, Chicago
+// CS301, Spring 2013: Final Project
 
 #include <iostream>
 #include <fstream>
@@ -25,7 +24,7 @@ int main(int argc, const char * argv[]){
     do{
         std::cout << ">> Please enter filename containing TM program P: ";
         getline(std::cin,tmFilenameP);
-        tmFilenameP = "/Users/andrewlong/Documents/School-Projects-Assignments/Spring 2013 - CS301/Turing Machine Simulator/Turing Machine Simulator/"+trimWhitespace(tmFilenameP);
+        tmFilenameP = trimWhitespace(tmFilenameP);
         tmFile.open(tmFilenameP.c_str());
         if(tmFile.fail()){
             std::cout << ">> Incorrect file name, please enter another.\n";

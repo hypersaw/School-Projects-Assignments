@@ -1,10 +1,9 @@
 //
-//  Rule.h
-//  Turing Machine Simulator
+// Turing Machine Simulator
 //
-//  Created by Andrew Long on 5/5/13.
-//  Copyright (c) 2013 Andrew Long. All rights reserved.
-//
+// Andrew Long
+// U. of Illinois, Chicago
+// CS301, Spring 2013: Final Project
 
 #ifndef STATE
 #define STATE

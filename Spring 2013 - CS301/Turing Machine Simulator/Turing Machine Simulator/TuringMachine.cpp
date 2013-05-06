@@ -1,47 +1,16 @@
-//    <LINE>	->	<VAR>,<VAR>:<INPUT>-><OUTPUT><DIR> | %
-//    <VAR>		->	<LET><VAR'>
-//    <VAR'>	->	<LET><VAR'> | <NUM><VAR'> | /E/
-//    <INPUT>	->	<LLET><INPUT'> | <NUM><INPUT'> | #<INPUT'> | _<INPUT'>
-//    <INPUT'>	->	,<INPUT> | /E/
-//    <OUTPUT>	->	<ELEM>, | /E/
-//    <DIR>		->	L | R
-//    <ELEM>	->	<NUM> | <LET> | # | _
-//    <NUM>		-> 	0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
-//    <LET>		-> 	<LLET> | <ULET>
-//    <LLET>	->	a | b | c | ... | x | y | z
-//    <ULET>	->	A | B | C | ... | X | Y | Z
-//
-//    1.	<LINE>		->	<VAR>,<VAR>:<INPUT>-><OUTPUT><DIR>
-//    2.	<INPUT>		->	<LLET><INPUT'>
-//    3.	<INPUT>		->	<NUM><INPUT'>
-//    4.	<INPUT>		->	#<INPUT'>
-//    5.	<INPUT>		->	_<INPUT'>
-//    6. 	<INPUT'>	->	,<INPUT>
-//    7.	<INPUT'>	->	/e/
-//    8.	<VAR>		->	<LET><VAR'>
-//    9.	<VAR'>		->	<LET><VAR'>
-//    10.	<VAR'>		->	<NUM><VAR'>
-//    11.	<VAR'>		->	/e/
-//    12.	<OUTPUT>	->	<ELEM>,
-//    13.	<OUTPUT>	->	/e/
-//    14.	<DIR>		->	L
-//    15.	<DIR>		->	R
-//    16.	<ELEM>		->	<NUM>
-//    17.	<ELEM>		->	<ULET>
-//    18.	<ELEM>		->	<LLET>
-//    19.	<ELEM>		->	#
-//    20.   <ELEM>		->	_
-//    21.	<NUM>		->	{ 0 - 9 }
-//    22.	<LET>		->	<LLET>
-//    23.	<LET>		->	<ULET>
-//    24.	<LLET>		->	{ a - z }
-//    25.	<ULET>		->	{ A - Z }
-
 #include "TuringMachine.h"
 
 TuringMachine::TuringMachine(std::string filename, std::string input){
+    ruleCount = 0;
+    currentLine = 0;
+    currentLinePosition = 0;
+    lowercaseSet = "abcdefghijklmnopqrstuvwxyz";
+    uppercaseSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    alphabetSet = lowercaseSet + uppercaseSet;
+    numberSet = "0123456789";
+    
     std::ifstream newMachine;
-    newMachine.open(filename);
+    newMachine.open(filename.c_str());
     
     if(newMachine.fail()){
         throw "ERROR: (TuringMachine) Invalid filename.";
@@ -210,7 +179,7 @@ void TuringMachine::runInput(std::string machineInput){
     }
     
     
-    if(currentState.getStateName() == "accept"){
+    if(currentState.getStateName() == "accept" || currentState.getStateName() == "reject"){
         for(int i = 0; i < machineInput.length();){
             if(headPosition == i){
                 std::cout << "(" << currentState.getStateName() << ") ";
@@ -219,13 +188,20 @@ void TuringMachine::runInput(std::string machineInput){
             std::cout << machineInput[i] << " ";
             ++i;
         }
-        if(headPosition == (machineInput.length() + 1)){
-            std::cout << "_ (" << currentState.getStateName() << ")\n";
+        if(headPosition == machineInput.length()){
+            std::cout << "(" << currentState.getStateName() << ")";
         }
-        std::cout << "** Accepted\n";
-    }
-    else{
-        std::cout << "** Rejected\n";
+        if(headPosition == (machineInput.length() + 1)){
+            std::cout << "_ (" << currentState.getStateName() << ")";
+        }
+        std::cout << "\n";
+        
+        if(currentState.getStateName() == "accept"){
+            std::cout << "** Accepted\n";
+        }
+        else{
+            std::cout << "** Rejected\n";
+        }
     }
 }
 
