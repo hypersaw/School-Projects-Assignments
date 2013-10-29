@@ -32,7 +32,7 @@
 #include "reader.h"
 
 
-const char * filename = "/Users/andrew/SkyDrive/UIC/CS488/Lab 2/Lab 2/project2.xml";  // Opens the XML file based on the entire pathname "filename"
+const char * filename = "/Users/andrew/Documents/School-Projects-Assignments/Fall 2013 - CS488/Lab 2/Lab 2/project2.xml";  // Opens the XML file based on the entire pathname "filename"
 
 int main(int argc, char** argv) {
     
