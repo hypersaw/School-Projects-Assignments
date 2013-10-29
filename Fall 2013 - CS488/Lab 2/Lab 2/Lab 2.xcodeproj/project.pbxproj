@@ -9,7 +9,10 @@
 /* Begin PBXBuildFile section */
 		49835130181F82A30039D700 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4983512F181F82A30039D700 /* libxml2.dylib */; };
 		49835135181F882D0039D700 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49835131181F882D0039D700 /* main.cpp */; };
-		49835136181F882D0039D700 /* reader.c in Sources */ = {isa = PBXBuildFile; fileRef = 49835133181F882D0039D700 /* reader.c */; };
+		49835139181F9DF10039D700 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49835137181F9DF10039D700 /* GLUT.framework */; };
+		4983513A181F9DF10039D700 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49835138181F9DF10039D700 /* OpenGL.framework */; };
+		4983513F181FAAED0039D700 /* XmlReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4983513D181FAAED0039D700 /* XmlReader.cpp */; };
+		4983514218201E9D0039D700 /* ALMatrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4983514018201E9D0039D700 /* ALMatrix.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,8 +32,12 @@
 		4983512F181F82A30039D700 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		49835131181F882D0039D700 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = SOURCE_ROOT; };
 		49835132181F882D0039D700 /* project2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = project2.xml; sourceTree = SOURCE_ROOT; };
-		49835133181F882D0039D700 /* reader.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = reader.c; sourceTree = SOURCE_ROOT; };
-		49835134181F882D0039D700 /* reader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = reader.h; sourceTree = SOURCE_ROOT; };
+		49835137181F9DF10039D700 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
+		49835138181F9DF10039D700 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		4983513D181FAAED0039D700 /* XmlReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XmlReader.cpp; sourceTree = SOURCE_ROOT; };
+		4983513E181FAAED0039D700 /* XmlReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XmlReader.h; sourceTree = SOURCE_ROOT; };
+		4983514018201E9D0039D700 /* ALMatrix.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ALMatrix.cpp; sourceTree = SOURCE_ROOT; };
+		4983514118201E9D0039D700 /* ALMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALMatrix.h; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +45,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49835139181F9DF10039D700 /* GLUT.framework in Frameworks */,
+				4983513A181F9DF10039D700 /* OpenGL.framework in Frameworks */,
 				49835130181F82A30039D700 /* libxml2.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -48,6 +57,8 @@
 		49835112181F7E0D0039D700 = {
 			isa = PBXGroup;
 			children = (
+				49835137181F9DF10039D700 /* GLUT.framework */,
+				49835138181F9DF10039D700 /* OpenGL.framework */,
 				4983512F181F82A30039D700 /* libxml2.dylib */,
 				4983511D181F7E0D0039D700 /* Lab 2 */,
 				4983511C181F7E0D0039D700 /* Products */,
@@ -67,8 +78,10 @@
 			children = (
 				49835131181F882D0039D700 /* main.cpp */,
 				49835132181F882D0039D700 /* project2.xml */,
-				49835133181F882D0039D700 /* reader.c */,
-				49835134181F882D0039D700 /* reader.h */,
+				4983513D181FAAED0039D700 /* XmlReader.cpp */,
+				4983513E181FAAED0039D700 /* XmlReader.h */,
+				4983514018201E9D0039D700 /* ALMatrix.cpp */,
+				4983514118201E9D0039D700 /* ALMatrix.h */,
 			);
 			path = "Lab 2";
 			sourceTree = "<group>";
@@ -124,7 +137,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49835136181F882D0039D700 /* reader.c in Sources */,
+				4983514218201E9D0039D700 /* ALMatrix.cpp in Sources */,
+				4983513F181FAAED0039D700 /* XmlReader.cpp in Sources */,
 				49835135181F882D0039D700 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -245,6 +259,7 @@
 				49835126181F7E0D0039D700 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
