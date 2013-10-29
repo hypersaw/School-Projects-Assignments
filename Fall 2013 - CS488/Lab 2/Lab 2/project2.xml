@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Project2>
+	
+<!-- This is the bounds of your viewing window plane in VRC coordinates -->
+	<umin>-12</umin>
+	<umax>12</umax>
+	<vmin>-10</vmin>
+	<vmax>10</vmax>
+		
+<!-- This is front and back plane specification of perspective cononical viewing volume  -->
+	<FrontPlane>10</FrontPlane>
+	<BackPlane>-50</BackPlane>
+	
+<!-- Only specify these axis (VUP and VPN) for the VRC -->		
+	<VPN>
+		<Point>
+			<x>0.0</x>
+			<y>0.0</y>
+			<z>1.0</z>
+		</Point> 
+	</VPN>
+		
+	<VUP>
+		<Point>
+			<x>0.0</x>
+			<y>1.0</y>
+			<z>0.0</z>
+		</Point>
+	</VUP>
+	
+	<VRP>
+		<!-- World coordinate point specifying the VRC origin -->
+		<Point>
+			<x>20.0</x>
+			<y>20.0</y>
+			<z>20.0</z>
+		</Point>
+	</VRP>
+		
+	<!-- Specify the center of project in reference to the VRC  -->	
+	<PRP>
+		<Point>
+			<x>0</x>
+			<y>0</y>
+			<z>20</z>
+		</Point>	
+	</PRP>
+	
+
+	<!-- Use this to draw the objects in the room i.e table, danling art piece and pyramid-->
+	<Wireframe>
+		<OutlineColor>
+			<Color> 
+				<Red>1.0</Red>
+				<Green>1.0</Green>
+				<Blue>0.0</Blue>
+			</Color>
+		</OutlineColor>
+		
+		// Draw a box at starting at 20,20,-20
+		<NumPoints>14</NumPoints>
+
+		<Coordinates3D>			
+			<!-- Point 0 -->						
+			<Point>
+				<x>10.0</x>
+				<y>10.0</y>
+				<z>-10.0</z>
+			</Point>
+
+			<!-- Point 1 -->
+			<Point>
+				<x>40.0</x>
+				<y>10.0</y>
+				<z>-10.0</z>
+			</Point>
+			
+			<!-- Point 2 -->
+			<Point>
+				<x>40.0</x>
+				<y>10.0</y>
+				<z>-30.0</z>
+			</Point>
+			
+			<!-- Point 3 -->
+			<Point>
+				<x>10.0</x>
+				<y>10.0</y>
+				<z>-30.0</z>
+			</Point>
+			
+			<!-- Point 4 -->
+			<Point>
+				<x>10.0</x>
+				<y>15.0</y>
+				<z>-10.0</z>
+			</Point>
+			
+			<!-- Point 5 -->
+			<Point>
+				<x>40.0</x>
+				<y>15.0</y>
+				<z>-10.0</z>
+			</Point>
+			
+			<!-- Point 6 -->
+			<Point>
+				<x>40.0</x>
+				<y>15.0</y>
+				<z>-30.0</z>
+			</Point>	
+			
+			<!-- Point 7 -->
+			
+			<Point> 
+				<x>10.0</x>
+				<y>15.0</y>
+				<z>-30.0</z>
+			</Point>
+
+			<!-- Chandalier -->
+			<!-- Point 8 -->			
+			<Point> 
+				<x>20.0</x>
+				<y>40.0</y>
+				<z>-20.0</z>
+			</Point>
+			<!-- Point 9 -->
+			
+			<Point> 
+				<x>20.0</x>
+				<y>35.0</y>
+				<z>-20.0</z>
+			</Point>
+			<!-- Point 10 -->
+			
+			<Point> 
+				<x>20.0</x>
+				<y>30.0</y>
+				<z>-15.0</z>
+			</Point>
+			<!-- Point 11 -->
+			
+			<Point> 
+				<x>25.0</x>
+				<y>30.0</y>
+				<z>-20.0</z>
+			</Point>
+			<!-- Point 12 -->
+			
+			<Point> 
+				<x>20.0</x>
+				<y>30.0</y>
+				<z>-25.0</z>
+			</Point>
+			<!-- Point 13 -->
+			
+			<Point> 
+				<x>15.0</x>
+				<y>30.0</y>
+				<z>-20.0</z>
+			</Point>
+		</Coordinates3D>
+		
+		<LineConnectivity>
+			<id>0</id><id>1</id>   // Line 01
+			<id>1</id><id>2</id>   // line 12			
+			<id>2</id><id>3</id>   // line 23			 
+			<id>3</id><id>0</id>   // line 30			 
+			<id>4</id><id>5</id>   // line 14			 
+			<id>5</id><id>6</id>   // line 45			 
+			<id>6</id><id>7</id>   // line 52			 
+			<id>7</id><id>4</id>   // line 56
+			<id>0</id><id>4</id>   // line 63
+			<id>1</id><id>5</id>   // line 76
+			<id>2</id><id>6</id>   // line 47	
+			<id>3</id><id>7</id>   // line 47	
+
+			<id>8</id><id>9</id>
+			<id>9</id><id>10</id>
+			<id>10</id><id>11</id>
+			<id>10</id><id>13</id>
+			<id>9</id><id>11</id>
+			<id>9</id><id>13</id>
+			<id>9</id><id>12</id>
+			<id>12</id><id>11</id>
+			<id>12</id><id>13</id>
+		</LineConnectivity>
+	</Wireframe>
+	
+	<!--- Specify the cylinder in world coordinates -->
+	<Cylinder>
+		<Radius>10.0</Radius>
+        <OutlineColor>
+            <Color>
+                <Green>1.0</Green>
+            </Color>
+        </OutlineColor>
+		
+		<Center>
+			<Point>
+				<x>25</x>
+				<y>0</y>
+				<z>-20</z>
+			</Point>
+		</Center>
+		
+		<Height>10.0</Height>
+	</Cylinder>
+	
+	<!-- Extra credit for creating a sphere -->
+	<Sphere>
+        <OutlineColor>
+            <Color>
+                <Red>1.0</Red>
+            </Color>
+        </OutlineColor>
+        
+		<Radius>10</Radius>
+		<Center>
+			<Point>
+				<x>10</x>
+				<y>10</y>
+				<z>-10</z>
+			</Point>
+		</Center>	
+	</Sphere>		
+	
+	<!-- Use this to draw your picture frame or other art work you want to add in the project -->
+	<LineDraw>
+		<OutlineColor>
+			<Color> 
+				<Red>1.0</Red>
+				<Green>0.5</Green>
+				<Blue>0.2</Blue>
+			</Color>
+		</OutlineColor>
+		
+		<NumPoints>4</NumPoints>
+		
+		<Coordinates3D>
+			<Point>
+				<x>5.0</x>
+				<y>25.0</y>
+				<z>-40</z>
+			</Point>
+			<Point>
+				<x>15.0</x>
+				<y>25.0</y>
+				<z>-40</z>
+			</Point>
+			<Point>
+				<x>15.0</x>
+				<y>35.0</y>
+				<z>-40</z>
+			</Point>
+			<Point> 
+				<x>5.0</x>
+				<y>35.0</y>
+				<z>-40</z>
+			</Point>
+		</Coordinates3D>
+	</LineDraw>
+</Project2>
