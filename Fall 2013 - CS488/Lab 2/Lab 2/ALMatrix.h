@@ -15,6 +15,7 @@
 class ALHomogeneousVector;
 class ALCartesianVector;
 
+// A 4 by 4 matrix
 class AL4DMatrix{
 public:
     AL4DMatrix(double v0, double v1, double v2, double v3,
@@ -24,7 +25,10 @@ public:
     AL4DMatrix();
     ~AL4DMatrix();
     
+    const AL4DMatrix operator+(const AL4DMatrix& rhs) const;
     const AL4DMatrix operator*(const AL4DMatrix& rhs) const;
+    const AL4DMatrix operator*(const int rhs) const;
+    friend const AL4DMatrix operator*(const int lhs, const AL4DMatrix& rhs) { return (rhs * lhs); }
     const ALHomogeneousVector operator*(const ALHomogeneousVector& rhs) const;
     const double operator()(const int rIndex, const int cIndex) const;
     AL4DMatrix& operator=(const AL4DMatrix& rhs);
@@ -38,13 +42,18 @@ private:
 
 };
 
+// A Cartesian Vector
 class ALCartesianVector {
 public:
     ALCartesianVector(double x, double y, double z);
     ALCartesianVector(ALHomogeneousVector hVector);
     ALCartesianVector();
     
-    int operator[](const int index) const;
+    double operator[](const int index) const;
+    const ALCartesianVector operator*(const int rhs) const { return ALCartesianVector(_x*rhs,_y*rhs,_z*rhs); }
+    friend const ALCartesianVector operator*(const int lhs, const ALCartesianVector& rhs){ return (rhs * lhs); }
+    
+    void Display() { printf("(%f, %f, %f)^T\n",_x,_y,_z); }
 
 private:
     double _x;
@@ -53,13 +62,17 @@ private:
     
 };
 
+// A Homogenous Vector
 class ALHomogeneousVector {
 public:
     ALHomogeneousVector(double x, double y, double z, double w);
     ALHomogeneousVector(ALCartesianVector cVector);
     ALHomogeneousVector();
     
-    int operator[](const int index) const;
+    double operator[](const int index) const;
+    const ALHomogeneousVector operator*(const int rhs) const { return ALHomogeneousVector(_x*rhs,_y*rhs,_z*rhs,_w*rhs); }
+    friend const ALHomogeneousVector operator*(const int lhs, const ALHomogeneousVector& rhs){ return (rhs * lhs); }
+    
     void Display() { printf("(%f, %f, %f, %f)^T\n",_x,_y,_z,_w); }
 
 private:
@@ -71,5 +84,6 @@ private:
 };
 
 AL4DMatrix AL4DMatrixIdentity();
+AL4DMatrix Al4DMatrixZero();
 
 #endif

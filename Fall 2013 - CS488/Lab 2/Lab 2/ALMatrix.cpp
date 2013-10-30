@@ -8,6 +8,12 @@
 
 #include "ALMatrix.h"
 
+/********************************************/
+/*                                          */
+/*               AL4DMatrix                 */
+/*                                          */
+/********************************************/
+
 AL4DMatrix::AL4DMatrix(double v0, double v1, double v2, double v3,
                              double v4, double v5, double v6, double v7,
                              double v8, double v9, double v10, double v11,
@@ -47,6 +53,13 @@ AL4DMatrix::~AL4DMatrix(){
 
 const double AL4DMatrix::operator()(const int rIndex, const int cIndex) const{
     return At(rIndex,cIndex);
+}
+
+const AL4DMatrix AL4DMatrix::operator+(const AL4DMatrix& rhs) const{
+    return AL4DMatrix(_values[0][0]+rhs(0,0), _values[0][1]+rhs(0,1), _values[0][2]+rhs(0,2), _values[0][3]+rhs(0,3),
+                      _values[1][0]+rhs(1,0), _values[1][1]+rhs(1,1), _values[1][2]+rhs(1,2), _values[1][3]+rhs(1,3),
+                      _values[2][0]+rhs(2,0), _values[2][1]+rhs(2,1), _values[2][2]+rhs(2,2), _values[2][3]+rhs(2,3),
+                      _values[3][0]+rhs(3,0), _values[3][1]+rhs(3,1), _values[3][2]+rhs(3,2), _values[3][3]+rhs(3,3));
 }
 
 const AL4DMatrix AL4DMatrix::operator*(const AL4DMatrix& rhs) const{
@@ -95,6 +108,13 @@ const ALHomogeneousVector AL4DMatrix::operator*(const ALHomogeneousVector& rhs) 
     return ALHomogeneousVector(result[0],result[1],result[2],result[3]);
 }
 
+const AL4DMatrix AL4DMatrix::operator*(const int rhs) const{
+    return AL4DMatrix((*this)(0,0)*rhs, (*this)(0,1)*rhs, (*this)(0,2)*rhs, (*this)(0,3)*rhs,
+                      (*this)(1,0)*rhs, (*this)(1,1)*rhs, (*this)(1,2)*rhs, (*this)(1,3)*rhs,
+                      (*this)(2,0)*rhs, (*this)(2,1)*rhs, (*this)(2,2)*rhs, (*this)(2,3)*rhs,
+                      (*this)(3,0)*rhs, (*this)(3,1)*rhs, (*this)(3,2)*rhs, (*this)(3,3)*rhs);
+}
+
 AL4DMatrix& AL4DMatrix::operator=(const AL4DMatrix& rhs) {
     // 1.  Deallocate any memory that MyClass is using internally
     // 2.  Allocate some memory to hold the contents of rhs
@@ -132,6 +152,11 @@ void AL4DMatrix::Display(){
 }
 
 
+/********************************************/
+/*                                          */
+/*             ALCartesianVector            */
+/*                                          */
+/********************************************/
 
 ALCartesianVector::ALCartesianVector(double x, double y, double z){
     _x = x;
@@ -145,13 +170,20 @@ ALCartesianVector::ALCartesianVector(ALHomogeneousVector hVector){
     _z = hVector[2]/hVector[3];
 }
 
-int ALCartesianVector::operator[](const int index) const{
+double ALCartesianVector::operator[](const int index) const{
     if(index == 0) return _x;
     else if(index == 1) return _y;
     else if(index == 2) return _z;
     
     return 0;
 }
+
+
+/********************************************/
+/*                                          */
+/*           ALHomogeneousVector            */
+/*                                          */
+/********************************************/
 
 ALHomogeneousVector::ALHomogeneousVector(double x, double y, double z, double w){
     _x = x;
@@ -167,7 +199,7 @@ ALHomogeneousVector::ALHomogeneousVector(ALCartesianVector cVector){
     _w = 1;
 }
 
-int ALHomogeneousVector::operator[](const int index) const{
+double ALHomogeneousVector::operator[](const int index) const{
     if(index == 0) return _x;
     else if(index == 1) return _y;
     else if(index == 2) return _z;
@@ -177,10 +209,16 @@ int ALHomogeneousVector::operator[](const int index) const{
 }
 
 
-
 AL4DMatrix AL4DMatrixIdentity(){
     return AL4DMatrix(1,0,0,0,
                       0,1,0,0,
                       0,0,1,0,
                       0,0,0,1);
+}
+
+AL4DMatrix AL4DMatrixZero(){
+    return AL4DMatrix(0,0,0,0,
+                      0,0,0,0,
+                      0,0,0,0,
+                      0,0,0,0);
 }
